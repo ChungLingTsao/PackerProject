@@ -12,7 +12,7 @@ import packer.Coordinates;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class CoordinatesTest {
     

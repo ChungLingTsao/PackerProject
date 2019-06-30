@@ -2,14 +2,15 @@ package packer;
 
 /**
  *
- * @author I.M.Bad
+ * @author I.M.Bad, Charles Tsao
  */
 public class Box {
     
+    public static final int MAX_BOX_WEIGHT = 15;
     private Manifest contents;
     private Customer customer;
-    private Depot depot; 
-
+    private Depot depot;
+    
     public Box(Customer customer, Depot depot) {
         this.customer = customer;
         this.depot = depot;
@@ -28,16 +29,18 @@ public class Box {
         }
     }
    
-    public String getLabel() {
+    public String getLabel() { //ADJUSTED FOR more readable output
         StringBuilder label = new StringBuilder();
+        label.append("================\n");
         label.append(customer);
         label.append("\n");
         label.append(customer.getClosestAddressTo(depot));
+        label.append("\n****************");
         label.append("\n");
         label.append(contents.toString());
-        label.append("\n");
+        label.append("\n****************");
         if (this.isFragile()) {
-            label.append("FRAGILE\n");
+            label.append("\n!!! FRAGILE !!!");
         }
         return label.toString();
     }
@@ -50,18 +53,18 @@ public class Box {
         return contents.getTotalWeight(); //SYNTAX ERROR - getTotalWeight NOT getWeight 
     }
     
-    //removed duplicate addProduct Function
+    //removed duplicate addProduct(arg) Function
     
     public boolean canFit(Product p) {
-        return p.getWeight() < 40;
+        return p.getWeight() <= MAX_BOX_WEIGHT; //LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
     
     public boolean canFit(Product p, int quantity) {
-        return (p.getWeight() * quantity) < 40;
+        return (p.getWeight() * quantity) <= MAX_BOX_WEIGHT; //LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
     
     public double remainingCapacity() {
-        return 40 - this.getWeight();
+        return MAX_BOX_WEIGHT - this.getWeight();
     }
     
     public boolean isFragile() {

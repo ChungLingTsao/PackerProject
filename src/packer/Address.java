@@ -20,7 +20,7 @@ public class Address {
     }
 
     public String toString() {
-        return 
+        return  
                 street + "\n" +
                 suburb + "\n" +
                 city + "\n" +

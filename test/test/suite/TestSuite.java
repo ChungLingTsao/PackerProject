@@ -1,4 +1,4 @@
-package test.packer;
+package test.suite;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,6 +9,7 @@ package test.packer;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import test.packer.AddressTest;
+import test.packer.BoxTest;
 import test.packer.CoordinatesTest;
 import test.packer.CustomerTest;
 import test.packer.DepotTest;
@@ -17,7 +18,7 @@ import test.packer.ProductTest;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -25,7 +26,8 @@ import test.packer.ProductTest;
     AddressTest.class,
     DepotTest.class,
     ProductTest.class,
-    CustomerTest.class
+    CustomerTest.class,
+    BoxTest.class
 })
 
 public class TestSuite {

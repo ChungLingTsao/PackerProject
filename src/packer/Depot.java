@@ -2,7 +2,7 @@ package packer;
 
 /**
  *
- * @author I.M.Bad
+ * @author I.M.Bad, Charles Tsao
  */
 public class Depot {
     private String name;
@@ -13,11 +13,11 @@ public class Depot {
         this.address = address;
     }
     
-    public String getName() {  // Created a GET function for name
-      return name;
+    public String getName() {  
+      return name; //SYNTAX ERROR: was returning address, not name
     }
     
-    public String getAddress() {  //SYNTAX ERROR: address not name
+    public String getAddress() { // Created a GET function for Address 
         return address.toString();   
     }
     

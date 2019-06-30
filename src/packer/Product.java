@@ -2,7 +2,7 @@ package packer;
 
 /**
  *
- * @author I.M.Bad
+ * @author I.M.Bad, Charles Tsao
  */
 public class Product {
 
@@ -36,7 +36,7 @@ public class Product {
      * @return the hazardous
      */
     public boolean isHazardous() {
-        return hazardous; // LOGICAL ERROR - Always returning false 
+        return hazardous; // LOGICAL ERROR - Was always returning false 
     }
 
     /**

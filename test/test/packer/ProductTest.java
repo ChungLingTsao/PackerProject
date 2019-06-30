@@ -67,6 +67,8 @@ public class ProductTest {
     @Test
     public void testIsFragile() {
         assertEquals(true,a1.isFragile());
+        assertEquals(true,a2.isFragile());
+        assertEquals(true,a3.isFragile());
         assertEquals(false,a4.isFragile());
     }
 

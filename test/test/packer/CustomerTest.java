@@ -15,7 +15,7 @@ import packer.Depot;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class CustomerTest {
 

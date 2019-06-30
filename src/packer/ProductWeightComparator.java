@@ -15,5 +15,4 @@ public class ProductWeightComparator implements Comparator<Product> {
         else if (a.getWeight() > b.getWeight()) {return -1;}
         else return a.getName().compareTo(b.getName());
     }
-                
 }

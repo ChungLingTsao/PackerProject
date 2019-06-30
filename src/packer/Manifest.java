@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 /**
  *
- * @author I.M.Bad
+ * @author I.M.Bad, Charles Tsao
  */
 public class Manifest {
     
@@ -27,7 +27,7 @@ public class Manifest {
     
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)*quantity);
+            quantities.put(p,quantities.get(p)+quantity); //LOGICAL OPERATOR, + from *
         }
         else {
             quantities.put(p,quantity);
@@ -38,34 +38,34 @@ public class Manifest {
     }
     
     public void removeProduct(Product p) {
-        if (quantities.containsKey(p) && quantities.get(p) > 0) { //LOGICAL ERROR, >= from >
+        if (quantities.containsKey(p) && quantities.get(p) >= 0) {
             quantities.put(p,quantities.get(p)-1);
         }
         else if (quantities.get(p) == 0) { //LOGICAL ERROR, < from ==
             quantities.remove(p); 
         }
-        if (quantities.containsKey(p)) {
+        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  //LOGICAL ERROR, ADDED quantity = 0 criteria when removing fom byWeight
             byWeight.remove(p);
         }
     }
     
     public double getTotalWeight() { //was returning total weight of a product and not TOTAL WEIGHT OF ALL PRODUCTS
         double weight = 0;
-        double total_weight = 0;  
+        double total_weight = 0;  //added
         for (Product p : quantities.keySet()) {
-            weight = quantities.get(p) * p.getWeight();
-            total_weight += weight; 
+            weight = quantities.get(p) * p.getWeight(); 
+            total_weight = total_weight + weight; //added
         }
-        return total_weight;
+        return total_weight; //changed to total_weight
     }
     
     public Product getHeaviestUnder(double weight) {
-      for (Product p : byWeight) {
-        if (p.getWeight() <= weight) {
-          return p;
+        for (Product p : byWeight) {
+            if (p.getWeight() <= weight) {
+            return p;
+            }
         }
-      }
-      return null;
+        return null;
     }
     
     public boolean isEmpty() {
@@ -96,4 +96,4 @@ public class Manifest {
         return false;
     } 
     
-} //added
+} // } added bracket to close class
