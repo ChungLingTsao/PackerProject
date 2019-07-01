@@ -31,7 +31,7 @@ public class Packer {
         }
 
         if (b != null) {
-          packedBoxes.add(b); //LOGICAL ERROR - duplicate line
+            packedBoxes.add(b); //LOGICAL ERROR - duplicate line
         }
 
         return packedBoxes;

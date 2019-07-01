@@ -6,7 +6,7 @@ package packer;
  */
 public class Box {
     
-    public static final int MAX_BOX_WEIGHT = 15;
+    public static final int MAX_BOX_WEIGHT = 20;
     private Manifest contents;
     private Customer customer;
     private Depot depot;

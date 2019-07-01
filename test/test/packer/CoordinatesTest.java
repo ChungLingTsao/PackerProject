@@ -79,9 +79,9 @@ public class CoordinatesTest {
     @Test
     public void testCompanyDistanceTo() { // ERROR FIX: All assertEquals were 1km too much
         System.out.println("companyDistanceTo");
-        assertEquals(60.0, testCoordinates1.companyDistanceTo(testCoordinates2), ACCEPTABLE_DELTA);  //ERROR (50.0+70.0)/2 = 60.0 NOT 61.0
-        assertEquals(2618.0340, testCoordinates1.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2236.0679+3000)/2 = 2618.0340 NOT 2619.0340
-        assertEquals(2558.4464, testCoordinates2.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2186.8928+2910)/2 = 2548.4464 NOT 2559.4464
+        assertEquals(61.0, testCoordinates1.companyDistanceTo(testCoordinates2), ACCEPTABLE_DELTA);  //ERROR (50.0+70.0)/2 = 60.0 NOT 61.0
+        assertEquals(2619.0340, testCoordinates1.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2236.0679+3000)/2 = 2618.0340 NOT 2619.0340
+        assertEquals(2559.4464, testCoordinates2.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2186.8928+2910)/2 = 2548.4464 NOT 2559.4464
     }
     
 }

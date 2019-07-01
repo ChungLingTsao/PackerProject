@@ -62,7 +62,7 @@ public class Manifest {
     public Product getHeaviestUnder(double weight) {
         for (Product p : byWeight) {
             if (p.getWeight() <= weight) {
-            return p;
+                return p;
             }
         }
         return null;
@@ -95,5 +95,5 @@ public class Manifest {
         }
         return false;
     } 
-    
+
 } // } added bracket to close class
