@@ -6,7 +6,7 @@ package packer;
  */
 public class Box {
     
-    public static final int MAX_BOX_WEIGHT = 20;
+    public int MAX_BOX_WEIGHT = 40;
     private Manifest contents;
     private Customer customer;
     private Depot depot;
@@ -72,6 +72,6 @@ public class Box {
     }
     
     public boolean isHazardous() {
-        return false;
+        return contents.hasHazardousItems(); //THIS MUST BE AN ERROR....ELSE NO BOXES ARE HAZARDOUS
     }
 }

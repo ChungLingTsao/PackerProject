@@ -33,6 +33,7 @@ public class Customer {
             double distance = a.getCoordinates().companyDistanceTo(d.getCoordinates());
             if (distance < bestDistance) {
                 bestAddress = a;
+                bestDistance = distance; //ERROR: bestDistance now set properly instead of remaining at MAX_VALUE
             }
         }
         return bestAddress;

@@ -18,10 +18,6 @@ public class Product {
         this.fragile = fragile;
     }
 
-  public Product() {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-
     /**
      * @return the weight
      */

@@ -1,11 +1,12 @@
+package testpacker;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.packer;;
+;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -40,7 +41,7 @@ public class DepotTest {
      */
     @Test
     public void testGetName() {
-        System.out.println("toString");
+        System.out.println(" -toString");
         assertEquals("City Depot", testDepot1.getName());
         assertEquals("Suburbs Depot", testDepot2.getName());
         assertEquals("Country Depot", testDepot3.getName());
@@ -51,7 +52,7 @@ public class DepotTest {
      */
     @Test
     public void testGetCoordinates() {
-        System.out.println("getCoordinates");
+        System.out.println(" -getCoordinates");
         assertEquals(testCoordinates1, testDepot1.getCoordinates());
         assertEquals(testCoordinates2, testDepot2.getCoordinates());
         assertEquals(testCoordinates3, testDepot3.getCoordinates());

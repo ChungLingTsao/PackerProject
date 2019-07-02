@@ -1,9 +1,10 @@
+package testpacker;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.packer;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,7 +13,8 @@ import packer.Address;
 import packer.Coordinates;
 
 /**
- *
+ * Test class for Address.java
+ * 
  * @author bunta
  */
 public class AddressTest {
@@ -35,7 +37,7 @@ public class AddressTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
+        System.out.println(" -toString");
         assertEquals("1 First St\nAplace\nCitadel City\nA111", testAddress1.toString());
         assertEquals("123 Count St\nBrooklyn\nWelling Town\nB222", testAddress2.toString());
         assertEquals("321 Back St\nChristly\nHolly Oaks\nC333", testAddress3.toString());
@@ -46,7 +48,7 @@ public class AddressTest {
      */
     @Test
     public void testGetCoordinates() {
-        System.out.println("getCoordinates");
+        System.out.println(" -getCoordinates");
         assertEquals(testCoordinates1, testAddress1.getCoordinates());
         assertEquals(testCoordinates2, testAddress2.getCoordinates());
         assertEquals(testCoordinates3, testAddress3.getCoordinates());

@@ -1,9 +1,11 @@
+package testpacker;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.packer;
+
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -47,7 +49,7 @@ public class CustomerTest {
     public void testGetClosestAddressTo() {
         // Maybe this should be broken int three tests.
         // I assumed that the test assertions underneath a newly added test address would be related.
-        System.out.println("getClosestAddressTo");
+        System.out.println(" -getClosestAddressTo");
         Customer testCustomer;
         
         testCustomer = new Customer("Test Customer", testAddress3);
@@ -56,30 +58,30 @@ public class CustomerTest {
         
         testCustomer.addAddress(testAddress2);
         assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot0));
-        assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot4)); //changed testAddress3 to testAddress2
+        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress1);
         assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
-        assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot4)); //changed testAddress3 to testAddress1
+        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress0);
         assertEquals(testAddress0, testCustomer.getClosestAddressTo(testDepot0));
-        assertEquals(testAddress0, testCustomer.getClosestAddressTo(testDepot4)); //changed testAddress3 to testAddress0
+        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer = new Customer("Test Customer", testAddress1);
         assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
         assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress2);
-        assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot0)); //changed testAddress1 to testAddress2
+        assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
         assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress3);
-        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot0)); //changed testAddress1 to testAddress3
+        assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
         assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress4);
-        assertEquals(testAddress4, testCustomer.getClosestAddressTo(testDepot0)); //changed testAddress1 to testAddress4
+        assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
         assertEquals(testAddress4, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer = new Customer("Test Customer", testAddress2);
@@ -87,12 +89,12 @@ public class CustomerTest {
         assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress3);
-        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot0)); //changed testAddress3 to testAddress2
+        assertEquals(testAddress2, testCustomer.getClosestAddressTo(testDepot0));
         assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
         
         testCustomer.addAddress(testAddress1);
         assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot0));
-        assertEquals(testAddress1, testCustomer.getClosestAddressTo(testDepot4)); //changed testAddress3 to testAddress1
+        assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
     }
     
 }

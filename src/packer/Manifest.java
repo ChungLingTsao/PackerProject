@@ -1,6 +1,7 @@
 package packer;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -15,15 +16,17 @@ public class Manifest {
     private Map<Product, Integer> quantities;
     // This keeps a list of all products ordered by weight
     private Set<Product> byWeight;
+    private Map<Product, Integer> cannotSet;
 
     public Manifest() {
         quantities = new HashMap<>();
         byWeight = new TreeSet<>(new ProductWeightComparator());
+        cannotSet = new HashMap<>();
     }
     
     public void addProduct(Product p) {
         addProduct(p,1);
-    }
+    } 
     
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
@@ -32,7 +35,8 @@ public class Manifest {
         else {
             quantities.put(p,quantity);
             if(!byWeight.add(p)) {
-                System.out.println("Couldn't add to Set");
+                cannotSet.put(p,1);  // Refactored to allow easier testing and neater console output
+                System.out.println(String.format("Couldn't add '%s' to Set", cannotSet.toString()));
             }
         }
     }
@@ -94,6 +98,25 @@ public class Manifest {
             }
         }
         return false;
-    } 
+    }
+    
+    // Created to detect if any hazardous items in manifest
+    public boolean hasHazardousItems() {
+        for (Product p : quantities.keySet()) {
+            if (p.isHazardous()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public String cannotSetProduct() {
+        if (cannotSet == null) {
+            return "None";
+        }
+        else {
+            return String.format("Couldn't add '%s' to Set", cannotSet.toString());
+        }
+    }
 
 } // } added bracket to close class

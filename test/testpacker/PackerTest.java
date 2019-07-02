@@ -1,10 +1,10 @@
+package testpacker;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package test.packer;
 
 import java.util.List;
 import static org.junit.Assert.assertEquals;
@@ -24,6 +24,7 @@ import packer.Product;
  * @author Charles Tsao
  */
 public class PackerTest {
+  
     Address depotAddress = new Address("23 Good Luck St", "Blue View", "Sandy Shores", "H337", new Coordinates(138, 995));
     Depot depot = new Depot("Main Depot", depotAddress);
     Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799", new Coordinates(1102, 87));
@@ -44,21 +45,25 @@ public class PackerTest {
      */
     @Test
     public void testPackProducts() {
+        System.out.println(" -packProducts");
         manifest.addProduct(product, 1);
         manifest.addProduct(product2, 5);
+        System.out.println(manifest + "asdasdasdas");
         List<Box> packedproducts = Packer.packProducts(customer, depot, manifest);
+        
         assertEquals(
-                "================\n"
+                "["
+                + "================\n"
                 + "Andy Bravo\n"
                 + "67 Torch Rd\n"
                 + "Treeline\n"
                 + "Mt High\n"
                 + "T799\n"
                 + "****************\n" 
-                + "\n"
                 + "Hammer x 1\n"
                 + "Danger Hammer x 5\n"
                 + "****************\n"
-                + "!!! FRAGILE !!!", packedproducts);
+                + "!!! FRAGILE !!!"
+                + "]", packedproducts.toString());
     }
 }

@@ -1,4 +1,6 @@
-package test.suite;
+package testpacker;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -8,13 +10,6 @@ package test.suite;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import test.packer.AddressTest;
-import test.packer.BoxTest;
-import test.packer.CoordinatesTest;
-import test.packer.CustomerTest;
-import test.packer.DepotTest;
-import test.packer.ProductTest;
-
 
 /**
  *
@@ -27,7 +22,10 @@ import test.packer.ProductTest;
     DepotTest.class,
     ProductTest.class,
     CustomerTest.class,
-    BoxTest.class
+    BoxTest.class,
+    
+    ManifestTest.class, 
+    PackerTest.class
 })
 
 public class TestSuite {

@@ -1,19 +1,20 @@
+package testpacker;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test.packer;
+
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 import packer.Product;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class ProductTest {
     
@@ -33,9 +34,9 @@ public class ProductTest {
         System.out.println("Testing Product class...");
     }
 
-
     @Test
     public void testEquals() {
+        System.out.println(" -equals");
         assertEquals(true, a1.equals(a1));
         assertEquals(true, a2.equals(a1));
         assertEquals(true, a3.equals(a1));
@@ -53,6 +54,7 @@ public class ProductTest {
 
     @Test
     public void testGetWeight() {
+        System.out.println(" -getWeight");
         assertEquals(2, a2.getWeight());
         assertEquals(3, a3.getWeight());
         assertEquals(4, a4.getWeight());
@@ -60,12 +62,14 @@ public class ProductTest {
 
     @Test
     public void testIsHazardous() {
+        System.out.println(" -isHazardous");
         assertEquals(true,a1.isHazardous());
         assertEquals(false,a3.isHazardous());
     }
 
     @Test
     public void testIsFragile() {
+        System.out.println(" -isFragile");
         assertEquals(true,a1.isFragile());
         assertEquals(true,a2.isFragile());
         assertEquals(true,a3.isFragile());
