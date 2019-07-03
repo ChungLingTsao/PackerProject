@@ -53,7 +53,7 @@ public class PackerTest {
         
         assertEquals(
             "["
-            + "================\n"
+            + "----------------\n"
             + "Andy Bravo\n"
             + "67 Torch Rd\n"
             + "Treeline\n"
@@ -63,7 +63,7 @@ public class PackerTest {
             + "Hammer x 1\n"
             + "Danger Hammer x 5\n"
             + "****************\n"
-            + "!!! FRAGILE !!!"
+            + "[[[ FRAGILE ]]]"
             + "]", packedproducts.toString());
     }
     
