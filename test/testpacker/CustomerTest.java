@@ -17,7 +17,8 @@ import packer.Customer;
 import packer.Depot;
 
 /**
- *
+ * Test class for Customer.java
+ * 
  * @author bunta, Charles Tsao
  */
 public class CustomerTest {

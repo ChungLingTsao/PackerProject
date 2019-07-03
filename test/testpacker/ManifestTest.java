@@ -20,7 +20,8 @@ import org.junit.AfterClass;
 import packer.ProductWeightComparator;
 
 /**
- *
+ * Test class for Manifest.java
+ * 
  * @author Charles Tsao
  */
 public class ManifestTest {

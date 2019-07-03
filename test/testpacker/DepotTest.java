@@ -16,11 +16,12 @@ import packer.Coordinates;
 import packer.Depot;
 
 /**
- *
+ * Test class for Depot.java
+ * 
  * @author bunta, Charles Tsao
  */
 public class DepotTest {
-    
+
     // Test data
     Coordinates testCoordinates1 = new Coordinates(0,0);
     Coordinates testCoordinates2 = new Coordinates(30,40);

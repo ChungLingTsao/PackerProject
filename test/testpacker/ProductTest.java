@@ -16,6 +16,12 @@ import packer.Product;
  *
  * @author bunta, Charles Tsao
  */
+
+/**
+ * Test class for Product.java
+ * 
+ * @author bunta, Charles Tsao
+ */
 public class ProductTest {
     
     // Test data

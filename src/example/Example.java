@@ -1,7 +1,15 @@
-package packer;
+package example;
 
 
 import java.util.List;
+import packer.Address;
+import packer.Box;
+import packer.Coordinates;
+import packer.Customer;
+import packer.Depot;
+import packer.Manifest;
+import packer.Packer;
+import packer.Product;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -49,11 +57,13 @@ public class Example {
 
         // Results
         for (Box b : done) {
+            System.out.println("-----------------");
+            System.out.println("----- Box " + (done.indexOf(b) + 1) + " -----");
             System.out.println(b);
+            System.out.println("");
         }
         
         // Display products that are unable to be set
-        System.out.println("");
         System.err.println(manifest.cannotSetProduct());
     }  
 }

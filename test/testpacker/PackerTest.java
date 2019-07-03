@@ -21,7 +21,8 @@ import packer.Packer;
 import packer.Product;
 
 /**
- *
+ * Test class for Packer.java
+ * 
  * @author Charles Tsao
  */
 public class PackerTest {
@@ -53,17 +54,17 @@ public class PackerTest {
         
         assertEquals(
             "["
-            + "----------------\n"
+            + "-----------------\n"
             + "Andy Bravo\n"
             + "67 Torch Rd\n"
             + "Treeline\n"
             + "Mt High\n"
             + "T799\n"
-            + "****************\n" 
+            + "*****************\n" 
             + "Hammer x 1\n"
             + "Danger Hammer x 5\n"
-            + "****************\n"
-            + "[[[ FRAGILE ]]]"
+            + "*****************\n"
+            + "[[[[ FRAGILE ]]]]"
             + "]", packedproducts.toString());
     }
     

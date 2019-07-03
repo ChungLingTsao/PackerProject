@@ -18,7 +18,8 @@ import packer.Depot;
 import packer.Product;
 
 /**
- *
+ * Test class for Box.java
+ * 
  * @author Charles Tsao
  */
 public class BoxTest {

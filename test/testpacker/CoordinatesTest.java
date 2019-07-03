@@ -14,7 +14,8 @@ import org.junit.BeforeClass;
 import packer.Coordinates;
 
 /**
- *
+ * Test class for Coordinates.java
+ * 
  * @author bunta, Charles Tsao
  */
 public class CoordinatesTest {
