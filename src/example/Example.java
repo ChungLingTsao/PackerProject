@@ -1,6 +1,5 @@
 package example;
 
-
 import java.util.List;
 import packer.Address;
 import packer.Box;
@@ -11,15 +10,11 @@ import packer.Manifest;
 import packer.Packer;
 import packer.Product;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * Example program that demonstrates packer functionality
+ * 
  * @author bunta, Charles Tsao
+ * @version 1.0
  */
 public class Example {
     
