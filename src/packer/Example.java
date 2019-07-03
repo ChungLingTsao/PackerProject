@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class Example {
     
@@ -39,14 +39,10 @@ public class Example {
         manifest.addProduct(new Product("Saw", 5, false, false), 1);
         manifest.addProduct(new Product("Light Bulbs", 1, false, true), 20);
         manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
-//        manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
-//        manifest.addProduct(new Product("Light Bulbs", 1, false, true), 20);
+        manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
         
         System.out.println("\nMANIFEST (to be packed):");
         System.out.println(manifest);
-
-        System.out.println("\nDUPLICATE PRODUCT ENTRIES:");
-        System.out.println(manifest.cannotSetProduct());
         
         System.out.println("\nPACKING:");
         List<Box> done = Packer.packProducts(customer, depot, manifest);
@@ -55,5 +51,9 @@ public class Example {
         for (Box b : done) {
             System.out.println(b);
         }
+        
+        // Display products that are unable to be set
+        System.out.println("");
+        System.err.println(manifest.cannotSetProduct());
     }  
 }

@@ -7,6 +7,7 @@ package testpacker;
  */
 
 
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -48,7 +49,6 @@ public class CustomerTest {
     @Test
     public void testGetClosestAddressTo() {
         // Maybe this should be broken int three tests.
-        // I assumed that the test assertions underneath a newly added test address would be related.
         System.out.println(" -getClosestAddressTo");
         Customer testCustomer;
         
@@ -97,4 +97,8 @@ public class CustomerTest {
         assertEquals(testAddress3, testCustomer.getClosestAddressTo(testDepot4));
     }
     
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
+    }
 }

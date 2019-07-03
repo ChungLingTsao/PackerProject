@@ -7,6 +7,7 @@ package testpacker;
  */
 
 import java.util.List;
+import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -48,22 +49,26 @@ public class PackerTest {
         System.out.println(" -packProducts");
         manifest.addProduct(product, 1);
         manifest.addProduct(product2, 5);
-        System.out.println(manifest + "asdasdasdas");
         List<Box> packedproducts = Packer.packProducts(customer, depot, manifest);
         
         assertEquals(
-                "["
-                + "================\n"
-                + "Andy Bravo\n"
-                + "67 Torch Rd\n"
-                + "Treeline\n"
-                + "Mt High\n"
-                + "T799\n"
-                + "****************\n" 
-                + "Hammer x 1\n"
-                + "Danger Hammer x 5\n"
-                + "****************\n"
-                + "!!! FRAGILE !!!"
-                + "]", packedproducts.toString());
+            "["
+            + "================\n"
+            + "Andy Bravo\n"
+            + "67 Torch Rd\n"
+            + "Treeline\n"
+            + "Mt High\n"
+            + "T799\n"
+            + "****************\n" 
+            + "Hammer x 1\n"
+            + "Danger Hammer x 5\n"
+            + "****************\n"
+            + "!!! FRAGILE !!!"
+            + "]", packedproducts.toString());
+    }
+    
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
     }
 }

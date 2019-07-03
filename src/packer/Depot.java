@@ -17,7 +17,8 @@ public class Depot {
       return name; //SYNTAX ERROR: was returning address, not name
     }
     
-    public String getAddress() { // Created a GET function for Address 
+    // Created a GETTER function for Address 
+    public String getAddress() { 
         return address.toString();   
     }
     

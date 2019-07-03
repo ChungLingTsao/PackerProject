@@ -1,7 +1,6 @@
 package packer;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,9 +18,9 @@ public class Manifest {
     private Map<Product, Integer> cannotSet;
 
     public Manifest() {
-        quantities = new HashMap<>();
+        quantities = new LinkedHashMap<>(); // Changed to LinkedHashMap to preserve insertion order. Mainly used for testing.
         byWeight = new TreeSet<>(new ProductWeightComparator());
-        cannotSet = new HashMap<>();
+        cannotSet = new LinkedHashMap<>();
     }
     
     public void addProduct(Product p) {
@@ -30,30 +29,31 @@ public class Manifest {
     
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)+quantity); //LOGICAL OPERATOR, + from *
+            quantities.put(p,quantities.get(p)+quantity); // LOGICAL ERROR: OPERATOR changed to + from *
         }
         else {
-            quantities.put(p,quantity);
             if(!byWeight.add(p)) {
-                cannotSet.put(p,1);  // Refactored to allow easier testing and neater console output
-                System.out.println(String.format("Couldn't add '%s' to Set", cannotSet.toString()));
+                cannotSet.put(p,1); // REFACTOR: Removed the System.out.println for easier testing and neater console output
+            }
+            else {
+                quantities.put(p,quantity); // Occurs if adding an additional quantity to existing product
             }
         }
     }
     
     public void removeProduct(Product p) {
-        if (quantities.containsKey(p) && quantities.get(p) >= 0) {
+        if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p,quantities.get(p)-1);
         }
-        else if (quantities.get(p) == 0) { //LOGICAL ERROR, < from ==
+        else if (quantities.get(p) == 0) { // Changed to 'ELSE IF' incase quantities gets set to 0 in previous IF statement
             quantities.remove(p); 
         }
-        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  //LOGICAL ERROR, ADDED quantity = 0 criteria when removing fom byWeight
+        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  // LOGICAL ERROR, ADDED quantity = 0 criteria when removing fom byWeight
             byWeight.remove(p);
         }
     }
-    
-    public double getTotalWeight() { //was returning total weight of a product and not TOTAL WEIGHT OF ALL PRODUCTS
+
+    public double getTotalWeight() { // LOGICAL ERROR: Function was returning TOTAL weight of A product and not TOTAL weight of ALL products
         double weight = 0;
         double total_weight = 0;  //added
         for (Product p : quantities.keySet()) {
@@ -62,7 +62,7 @@ public class Manifest {
         }
         return total_weight; //changed to total_weight
     }
-    
+
     public Product getHeaviestUnder(double weight) {
         for (Product p : byWeight) {
             if (p.getWeight() <= weight) {
@@ -71,7 +71,7 @@ public class Manifest {
         }
         return null;
     }
-    
+
     public boolean isEmpty() {
         return byWeight.isEmpty();
     }
@@ -110,13 +110,13 @@ public class Manifest {
         return false;
     }
     
+    // Created during refactoring of AddProduct Function to detect products that cannot be set.
     public String cannotSetProduct() {
-        if (cannotSet == null) {
-            return "None";
+        if (cannotSet.isEmpty()) {
+            return "N/A";
         }
         else {
-            return String.format("Couldn't add '%s' to Set", cannotSet.toString());
+            return String.format("Couldn't add '%s' to Set", cannotSet.keySet().toString().replace("[", "").replace("]", ""));
         }
     }
-
 } // } added bracket to close class

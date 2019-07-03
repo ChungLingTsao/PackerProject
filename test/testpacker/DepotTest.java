@@ -7,6 +7,7 @@ package testpacker;
  */
 ;
 
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -16,7 +17,7 @@ import packer.Depot;
 
 /**
  *
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class DepotTest {
     
@@ -58,4 +59,8 @@ public class DepotTest {
         assertEquals(testCoordinates3, testDepot3.getCoordinates());
     }
     
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
+    }
 }

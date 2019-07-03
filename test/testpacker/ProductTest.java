@@ -6,7 +6,7 @@ package testpacker;
  * and open the template in the editor.
  */
 
-
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -75,5 +75,9 @@ public class ProductTest {
         assertEquals(true,a3.isFragile());
         assertEquals(false,a4.isFragile());
     }
-
+    
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
+    }
 }

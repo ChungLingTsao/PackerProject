@@ -24,24 +24,25 @@ import packer.Product;
 public class BoxTest {
     
     Product p1 = new Product("P1", 20, true, true);
+    Product p2 = new Product("P2", 1, true, true);
     Coordinates c1 = new Coordinates(1, 1);
     Address a1 = new Address("Street1", "Suburb1", "City1", "123", c1);
     Customer cust1 = new Customer("Clera",a1);
     Depot d1 = new Depot("Depot1", a1);
 
     Box b1 = new Box(cust1, d1);
-  
     
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Box class...");
     }  
     
-    //both AddProduct functions are not tested as it stores products in a manifest class.
+    // Both AddProduct functions are not tested as it stores products in a manifest class.
     
     @Test
     public void testGetWeight(){
         System.out.println(" -getWeight");
+        b1.MAX_BOX_WEIGHT = 20;
         b1.addProduct(p1);
         assertEquals(20.0, b1.getWeight(), 0.001);
     }
@@ -78,5 +79,18 @@ public class BoxTest {
         b1.addProduct(p1);
         assertEquals(true, b1.isHazardous());
     }
-
+    
+    @Test
+    public void testIsHeavy() {
+        b1.addProduct(p2); //p2 weight is 1kg
+        assertEquals(false, b1.isHeavy());
+        
+        b1.addProduct(p1); //p1 weight is 20kg
+        assertEquals(true, b1.isHeavy());
+    }
+    
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
+    }
 }

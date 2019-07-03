@@ -6,6 +6,7 @@ package testpacker;
  * and open the template in the editor.
  */
 
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -15,7 +16,7 @@ import packer.Coordinates;
 /**
  * Test class for Address.java
  * 
- * @author bunta
+ * @author bunta, Charles Tsao
  */
 public class AddressTest {
     
@@ -54,4 +55,8 @@ public class AddressTest {
         assertEquals(testCoordinates3, testAddress3.getCoordinates());
     }
     
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
+    }
 }

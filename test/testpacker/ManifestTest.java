@@ -7,7 +7,7 @@ package testpacker;
  */
 
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
@@ -16,6 +16,7 @@ import packer.Manifest;
 import packer.Product;
 import java.util.Map;
 import java.util.TreeSet;
+import org.junit.AfterClass;
 import packer.ProductWeightComparator;
 
 /**
@@ -25,14 +26,15 @@ import packer.ProductWeightComparator;
 public class ManifestTest {
  
     // This tracks the quantity if each product in the manifest
-    private Map<Product, Integer> quantities;
+    public Map<Product, Integer> quantities;
     // This keeps a list of all products ordered by weight
     private Set<Product> byWeight;  
     
     Manifest manifest = new Manifest();
     Product product = new Product("Hammer", 3, false, false);
     Product product2 = new Product("Danger Hammer", 1, true, true);
-            
+    Product product3 = new Product("Hammer", 3, false, false);
+    
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Manifest class...");
@@ -43,16 +45,15 @@ public class ManifestTest {
      */
     @Test
     public void testAddProduct() {
-        byWeight = new TreeSet<>(new ProductWeightComparator());
         System.out.println(" -addProduct");
+        byWeight = new TreeSet<>(new ProductWeightComparator());
+        
         manifest.addProduct(product);
-        manifest.addProduct(product2);
-        assertEquals("Hammer" + "3" + "false" + "false", product.getName() + product.getWeight() + product.isHazardous() + product.isFragile());
-        assertEquals("Danger Hammer" + "1" + "true" + "true", product2.getName() + product2.getWeight() + product2.isHazardous() + product2.isFragile());
+        manifest.addProduct(product2, 1);
+        assertEquals("Hammer x 1\nDanger Hammer x 1", manifest.toString());
         
-        Product product3 = new Product("Hammer", 3, false, false);
-        manifest.addProduct(product3);
-        
+        manifest.addProduct(product3, 1);
+        assertEquals("Couldn't add 'Hammer' to Set", manifest.cannotSetProduct());
     }
     
     /**
@@ -122,14 +123,12 @@ public class ManifestTest {
     @Test
     public void testToString() {
         System.out.println(" -toString");
-  //      quantities = new HashMap<>();  
-  
+        quantities = new LinkedHashMap<>();
+        
         manifest.addProduct(product, 1);
-        //quantities.put(product, 1);
         assertEquals("Hammer x 1", manifest.toString());
-
+        
         manifest.addProduct(product2, 5);
-        //quantities.put(product2, 5);
         assertEquals("Hammer x 1\nDanger Hammer x 5", manifest.toString());
     }
 
@@ -141,5 +140,10 @@ public class ManifestTest {
         System.out.println(" -hasFragileItems");
         assertEquals(false, product.isFragile());     
         assertEquals(true, product2.isFragile());     
+    }
+    
+    @AfterClass
+    public static void closeClass() {
+        System.out.println("");
     }
 }

@@ -2,7 +2,7 @@ package packer;
 
 /**
  *
- * @author I.M.Bad
+ * @author I.M.Bad, Charles Tsao
  */
 public class Coordinates {
     
@@ -43,6 +43,6 @@ public class Coordinates {
         double xDiff2 = other.getX() - this.getX();
         double yDiff2 = other.getY() - this.getY();
         double dist2 = Math.abs(xDiff2) + Math.abs(yDiff2);
-        return (dist1 + dist2)/2 + 1; // ERROR: was missing +1 (km) due to company requirements
+        return (dist1 + dist2)/2 + 1; // ERROR: was missing +1 (km) for the company's proprietary distance metric
     }
 }
