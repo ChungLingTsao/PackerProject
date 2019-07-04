@@ -22,6 +22,7 @@ import packer.Product;
  */
 public class PackerTest {
   
+    // Test data
     Address depotAddress = new Address("23 Good Luck St", "Blue View", "Sandy Shores", "H337", new Coordinates(138, 995));
     Depot depot = new Depot("Main Depot", depotAddress);
     Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799", new Coordinates(1102, 87));

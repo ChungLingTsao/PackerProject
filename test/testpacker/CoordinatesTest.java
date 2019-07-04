@@ -14,8 +14,8 @@ import packer.Coordinates;
  */
 public class CoordinatesTest {
     
-    // If distances are in km, then results can be off by up to 1m
-    public static final double ACCEPTABLE_DELTA = 0.001; 
+    /** Sets the acceptable difference the results can be, due to results calculated using Double*/
+    public static final double ACCEPTABLE_DELTA = 0.001; // Results can be off by up to 1m
     
     // Test data
     Coordinates testCoordinates1 = new Coordinates(0,0);

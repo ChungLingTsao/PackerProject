@@ -1,16 +1,11 @@
 package testpacker;
 
-import java.util.LinkedHashMap;
-import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import packer.Manifest;
 import packer.Product;
-import java.util.Map;
-import java.util.TreeSet;
 import org.junit.AfterClass;
-import packer.ProductWeightComparator;
 
 /**
  * Test class for Manifest.java
@@ -19,12 +14,8 @@ import packer.ProductWeightComparator;
  * @version 1.0
  */
 public class ManifestTest {
- 
-    // This tracks the quantity if each product in the manifest
-    public Map<Product, Integer> quantities;
-    // This keeps a list of all products ordered by weight
-    private Set<Product> byWeight;  
-    
+
+    // Test data
     Manifest manifest = new Manifest();
     Product product = new Product("Hammer", 3, false, false);
     Product product2 = new Product("Danger Hammer", 1, true, true);
@@ -44,8 +35,7 @@ public class ManifestTest {
     @Test
     public void testAddProduct() {
         System.out.println(" -addProduct");
-        byWeight = new TreeSet<>(new ProductWeightComparator());
-        
+
         manifest.addProduct(product);
         manifest.addProduct(product2, 1);
         assertEquals("Hammer x 1\nDanger Hammer x 1", manifest.toString());
@@ -97,11 +87,10 @@ public class ManifestTest {
     @Test
     public void testIsEmpty() {
         System.out.println(" -isEmpty");
-        byWeight = new TreeSet<>(new ProductWeightComparator());
-        assertEquals(true, byWeight.isEmpty());
+        assertEquals(true, manifest.isEmpty());
         
-        byWeight.add(product);
-        assertEquals(false, byWeight.isEmpty());
+        manifest.addProduct(product);
+        assertEquals(false, manifest.isEmpty());
     }
     
     /**
@@ -121,7 +110,6 @@ public class ManifestTest {
     @Test
     public void testToString() {
         System.out.println(" -toString");
-        quantities = new LinkedHashMap<>();
         
         manifest.addProduct(product, 1);
         assertEquals("Hammer x 1", manifest.toString());
