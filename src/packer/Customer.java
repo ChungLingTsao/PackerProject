@@ -15,9 +15,9 @@ public class Customer {
     private List<Address> addresses;
 
     /**
-    * @param name Name of the customer
-    * @param address Address of the customer
-    */
+     * @param name Name of the customer
+     * @param address Address of the customer
+     */
     public Customer(String name, Address address) {
         addresses = new ArrayList<>();
         this.name = name;
@@ -25,23 +25,23 @@ public class Customer {
     }
     
     /**
-    * @param address Adding an address to the customer
-    */
+     * @param address Adding an address to the customer
+     */
     public void addAddress(Address address) {
         this.addresses.add(address);
     }
     
     /**
-    * @return The name of the customer
-    */
+     * @return The name of the customer
+     */
     public String getName() {
         return name;
     }
 
     /**
-    * @param d The depot where the products are to be shipped from
-    * @return The closest customer address to the depot
-    */
+     * @param d The depot where the products are to be shipped from
+     * @return The closest customer address to the depot
+     */
     public Address getClosestAddressTo(Depot d) {
         double bestDistance = Double.MAX_VALUE;
         Address bestAddress = null;
@@ -56,12 +56,13 @@ public class Customer {
     }
     
     /**
-    * Overrides the toString() from the Java Standard Library to just return the customer name
-    * 
-    * @return The name of the customer
-    */
+     * Overrides the toString() from the Java Standard Library to just return the customer name
+     * 
+     * @return The name of the customer
+     */
     @Override
     public String toString() {
         return this.getName();
     }
+    
 }

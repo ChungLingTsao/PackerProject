@@ -1,12 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-;
-
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -19,6 +12,7 @@ import packer.Depot;
  * Test class for Depot.java
  * 
  * @author bunta, Charles Tsao
+ * @version 1.0
  */
 public class DepotTest {
 
@@ -33,6 +27,9 @@ public class DepotTest {
     Depot testDepot2 = new Depot("Suburbs Depot", testAddress2);
     Depot testDepot3 = new Depot("Country Depot", testAddress3);
 
+    /**
+     * Console output indicating start of DepotTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Depot class...");
@@ -60,8 +57,12 @@ public class DepotTest {
         assertEquals(testCoordinates3, testDepot3.getCoordinates());
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+    
 }

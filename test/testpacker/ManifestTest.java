@@ -1,12 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 import java.util.LinkedHashMap;
 import java.util.Set;
 import static org.junit.Assert.assertEquals;
@@ -23,6 +16,7 @@ import packer.ProductWeightComparator;
  * Test class for Manifest.java
  * 
  * @author Charles Tsao
+ * @version 1.0
  */
 public class ManifestTest {
  
@@ -36,6 +30,9 @@ public class ManifestTest {
     Product product2 = new Product("Danger Hammer", 1, true, true);
     Product product3 = new Product("Hammer", 3, false, false);
     
+    /**
+     * Console output indicating start of ManifestTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Manifest class...");
@@ -143,8 +140,12 @@ public class ManifestTest {
         assertEquals(true, product2.isFragile());     
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+    
 }

@@ -1,11 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -21,9 +15,11 @@ import packer.Product;
  * Test class for Box.java
  * 
  * @author Charles Tsao
+ * @version 1.0
  */
 public class BoxTest {
     
+    // Test data
     Product p1 = new Product("P1", 20, true, true);
     Product p2 = new Product("P2", 1, true, true);
     Coordinates c1 = new Coordinates(1, 1);
@@ -33,6 +29,9 @@ public class BoxTest {
 
     Box b1 = new Box(cust1, d1);
     
+    /**
+     * Console output indicating start of BoxTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Box class...");
@@ -40,6 +39,9 @@ public class BoxTest {
     
     // Both AddProduct functions are not tested as it stores products in a manifest class.
     
+    /**
+     * Test of getWeight method, of class Box.
+     */
     @Test
     public void testGetWeight(){
         System.out.println(" -getWeight");
@@ -48,6 +50,9 @@ public class BoxTest {
         assertEquals(20.0, b1.getWeight(), 0.001);
     }
     
+    /**
+     * Test of cantFit method, of class Box.
+     */
     @Test
     public void testCanFit(){
         System.out.println(" -canFit");
@@ -59,6 +64,9 @@ public class BoxTest {
         assertEquals(true, b1.canFit(p1));
     }
     
+    /**
+     * Test of remainingCapacity method, of class Box.
+     */
     @Test
     public void testRemainingCapacity() {
         System.out.println(" -remainingCapacity");  
@@ -67,6 +75,9 @@ public class BoxTest {
         assertEquals(50-20, b1.remainingCapacity(), 0.001);
     }
     
+    /**
+     * Test of isFragile method, of class Box.
+     */
     @Test
     public void testIsFragile() {
         System.out.println(" -isFragile");
@@ -74,6 +85,9 @@ public class BoxTest {
         assertEquals(true, b1.isFragile());
     }
     
+    /**
+     * Test of isHazardous method, of class Box.
+     */
     @Test
     public void testIsHazardous() {
         System.out.println(" -isHazardous");  
@@ -81,6 +95,9 @@ public class BoxTest {
         assertEquals(true, b1.isHazardous());
     }
     
+    /**
+     * Test of isHeavy method, of class Box.
+     */
     @Test
     public void testIsHeavy() {
         b1.addProduct(p2); //p2 weight is 1kg
@@ -90,8 +107,12 @@ public class BoxTest {
         assertEquals(true, b1.isHeavy());
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+
 }

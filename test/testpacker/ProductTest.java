@@ -1,11 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,14 +7,10 @@ import static org.junit.Assert.*;
 import packer.Product;
 
 /**
- *
- * @author bunta, Charles Tsao
- */
-
-/**
  * Test class for Product.java
  * 
  * @author bunta, Charles Tsao
+ * @version 1.0
  */
 public class ProductTest {
     
@@ -35,11 +25,17 @@ public class ProductTest {
     Product b3 = new Product("Beta", 3, false, true);
     Product b4 = new Product("Beta", 4, true, false);
         
+    /**
+     * Console output indicating start of ProductTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Product class...");
     }
 
+    /**
+     * Test of equals method, of class Product.
+     */
     @Test
     public void testEquals() {
         System.out.println(" -equals");
@@ -57,7 +53,10 @@ public class ProductTest {
         assertEquals(false, b3.equals(a3));
         assertEquals(false, b4.equals(a4)); 
     }
-
+    
+    /**
+     * Test of getWeight method, of class Product.
+     */
     @Test
     public void testGetWeight() {
         System.out.println(" -getWeight");
@@ -66,6 +65,9 @@ public class ProductTest {
         assertEquals(4, a4.getWeight());
     }
 
+    /**
+     * Test of isHazardous method, of class Product.
+     */
     @Test
     public void testIsHazardous() {
         System.out.println(" -isHazardous");
@@ -73,6 +75,9 @@ public class ProductTest {
         assertEquals(false,a3.isHazardous());
     }
 
+    /**
+     * Test of isFragile method, of class Product.
+     */
     @Test
     public void testIsFragile() {
         System.out.println(" -isFragile");
@@ -82,8 +87,12 @@ public class ProductTest {
         assertEquals(false,a4.isFragile());
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+    
 }

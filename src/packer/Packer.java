@@ -12,13 +12,13 @@ import java.util.List;
 public class Packer {
 
     /**
-    * Packer class that packs the items from the manifest into boxes
-    * 
-    * @param c Customer who ordered the products
-    * @param d Depot where products are to be shipped from
-    * @param m Manifest of products ordered by customer
-    * @return A list of packed boxes
-    */
+     * Packer class that packs the items from the manifest into boxes
+     * 
+     * @param c Customer who ordered the products
+     * @param d Depot where products are to be shipped from
+     * @param m Manifest of products ordered by customer
+     * @return A list of packed boxes
+     */
     public static List<Box> packProducts(Customer c, Depot d, Manifest m) {
         List<Box> packedBoxes = new ArrayList<>();
         Box b = null;
@@ -46,4 +46,5 @@ public class Packer {
 
         return packedBoxes;  
     }
+    
 }

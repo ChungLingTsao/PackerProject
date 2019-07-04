@@ -60,5 +60,6 @@ public class Example {
         
         // Display products that are unable to be set
         System.err.println(manifest.cannotSetProduct());
-    }  
+    }
+    
 }

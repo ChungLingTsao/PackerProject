@@ -19,9 +19,9 @@ public class Box {
     private Depot depot;
     
     /**
-    * @param customer Customer to deliver to 
-    * @param depot Depot to deliver from
-    */
+     * @param customer Customer to deliver to 
+     * @param depot Depot to deliver from
+     */
     public Box(Customer customer, Depot depot) {
         this.customer = customer;
         this.depot = depot;
@@ -29,10 +29,10 @@ public class Box {
     }
     
     /**
-    * Adds one product to the contents of a box
-    * 
-    * @param product Product to add to box
-    */
+     * Adds one product to the contents of a box
+     * 
+     * @param product Product to add to box
+     */
     public void addProduct(Product product) {
         if (canFit(product)) {
             contents.addProduct(product, 1);
@@ -40,11 +40,11 @@ public class Box {
     }
 
     /**
-    * Adds an amount of product to the contents of a box
-    * 
-    * @param product Product to add to box
-    * @param quantity Amount of product to add
-    */
+     * Adds an amount of product to the contents of a box
+     * 
+     * @param product Product to add to box
+     * @param quantity Amount of product to add
+     */
     public void addProduct(Product product, int quantity) {
         if (canFit(product,quantity)); {
             contents.addProduct(product, quantity);
@@ -52,10 +52,10 @@ public class Box {
     }
 
     /**
-    * Concatenates a String label from fields relating to the box
-    * 
-    * @return String Label for the box
-    */    
+     * Concatenates a String label from fields relating to the box
+     * 
+     * @return String Label for the box
+     */    
     public String getLabel() { // REFACTOR: Adjusted for output readibility
         StringBuilder label = new StringBuilder();
         label.append("-----------------\n");
@@ -133,4 +133,5 @@ public class Box {
     public boolean isHeavy() {
         return contents.getTotalWeight() >= HEAVY_LIMIT;
     }
+    
 }

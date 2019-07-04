@@ -1,11 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.util.List;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
@@ -24,6 +18,7 @@ import packer.Product;
  * Test class for Packer.java
  * 
  * @author Charles Tsao
+ * @version 1.0
  */
 public class PackerTest {
   
@@ -36,7 +31,9 @@ public class PackerTest {
     Product product = new Product("Hammer", 3, false, false);
     Product product2 = new Product("Danger Hammer", 1, true, true);
     
-
+    /**
+     * Console output indicating start of PackerTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Packer class...");
@@ -68,8 +65,12 @@ public class PackerTest {
             + "]", packedproducts.toString());
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+    
 }

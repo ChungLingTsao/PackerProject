@@ -14,11 +14,11 @@ public class Product {
     private boolean fragile;
 
     /**
-    * @param name Name of the product
-    * @param weight Weight of the product
-    * @param hazardous Whether or not the product is hazardous
-    * @param fragile Whether or not the product is fragile
-    */
+     * @param name Name of the product
+     * @param weight Weight of the product
+     * @param hazardous Whether or not the product is hazardous
+     * @param fragile Whether or not the product is fragile
+     */
     public Product(String name, int weight, boolean hazardous, boolean fragile) {
         this.name = name;
         this.weight = weight;
@@ -55,21 +55,21 @@ public class Product {
     }
 
     /**
-    * Overrides the toString() from the Java Standard Library to return the name of the product
-    * 
-    * @return The name of the product
-    */
+     * Overrides the toString() from the Java Standard Library to return the name of the product
+     * 
+     * @return The name of the product
+     */
     @Override
     public String toString() {
         return this.getName();
     }
 
     /**
-    * Overrides the equals(args) from the Java Standard Library to return the validity of a product name equaling the name of a product.
-    * 
-    * @param o The product object that is being examined
-    * @return Validity of a product name being the name of the product
-    */    
+     * Overrides the equals(args) from the Java Standard Library to return the validity of a product name equaling the name of a product.
+     * 
+     * @param o The product object that is being examined
+     * @return Validity of a product name being the name of the product
+     */    
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Product)) {
@@ -78,5 +78,5 @@ public class Product {
         Product p = (Product)o;
         return p.getName().equals(this.getName());
     }
-    
+
 }

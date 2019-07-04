@@ -1,11 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,6 +11,7 @@ import packer.Coordinates;
  * Test class for Address.java
  * 
  * @author bunta, Charles Tsao
+ * @version 1.0
  */
 public class AddressTest {
     
@@ -28,13 +23,16 @@ public class AddressTest {
     Address testAddress2 = new Address("123 Count St", "Brooklyn", "Welling Town", "B222", testCoordinates2);
     Address testAddress3 = new Address("321 Back St", "Christly", "Holly Oaks", "C333", testCoordinates3);
 
+    /**
+     * Console output indicating start of AddressTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Address class...");
     }
     
     /**
-     * Test of toString method, of class Address.
+     * Testing of toString method, of class Address.
      */
     @Test
     public void testToString() {
@@ -55,8 +53,12 @@ public class AddressTest {
         assertEquals(testCoordinates3, testAddress3.getCoordinates());
     }
     
+    /**
+     * Separates console output between test classes.
+     */
     @AfterClass
     public static void closeClass() {
         System.out.println("");
     }
+    
 }

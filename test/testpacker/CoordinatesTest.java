@@ -1,12 +1,5 @@
 package testpacker;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-;
-
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,6 +10,7 @@ import packer.Coordinates;
  * Test class for Coordinates.java
  * 
  * @author bunta, Charles Tsao
+ * @version 1.0
  */
 public class CoordinatesTest {
     
@@ -28,6 +22,9 @@ public class CoordinatesTest {
     Coordinates testCoordinates2 = new Coordinates(30,40);
     Coordinates testCoordinates3 = new Coordinates(1000, 2000);
     
+    /**
+     * Console output indicating start of CoordinatesTest class.
+     */
     @BeforeClass
     public static void setUpClass() {
         System.out.println("Testing Coordinates class...");
@@ -87,7 +84,10 @@ public class CoordinatesTest {
         assertEquals(2619.0340, testCoordinates1.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2236.0679+3000)/2 = 2618.0340 NOT 2619.0340
         assertEquals(2559.4464, testCoordinates2.companyDistanceTo(testCoordinates3), ACCEPTABLE_DELTA); //ERROR (2186.8928+2910)/2 = 2558.4464 NOT 2559.4464
     }
-    
+
+    /**
+     * Separates console output between test classes.
+     */    
     @AfterClass
     public static void closeClass() {
         System.out.println("");

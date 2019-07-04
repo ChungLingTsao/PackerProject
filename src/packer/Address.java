@@ -15,12 +15,12 @@ public class Address {
     private Coordinates coordinates;
 
     /**
-    * @param street Street name of Address
-    * @param suburb Suburb name of Address
-    * @param city City name of Address
-    * @param postcode Postcode of Address
-    * @param coordinates Coordinates of Address
-    */
+     * @param street Street name of Address
+     * @param suburb Suburb name of Address
+     * @param city City name of Address
+     * @param postcode Postcode of Address
+     * @param coordinates Coordinates of Address
+     */
     public Address(String street, String suburb, String city, String postcode, Coordinates coordinates) {
         this.street = street;
         this.suburb = suburb;
@@ -30,10 +30,10 @@ public class Address {
     }
 
     /**
-    * Concatenates the address fields together
-    * 
-    * @return String containing the whole address
-    */
+     * Concatenates the address fields together
+     * 
+     * @return String containing the whole address
+     */
     @Override
     public String toString() {
         return  
@@ -49,5 +49,4 @@ public class Address {
         return coordinates;
     }
 
-    
 }
