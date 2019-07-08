@@ -129,6 +129,16 @@ public class ManifestTest {
     }
     
     /**
+     * Test of hasHazardousItems method, of class Manifest.
+     */
+    @Test
+    public void testHasHazardousItems() {
+        System.out.println(" -hasHazardousItems");
+        assertEquals(false, product.isHazardous());     
+        assertEquals(true, product2.isHazardous());     
+    }
+    
+    /**
      * Separates console output between test classes.
      */
     @AfterClass

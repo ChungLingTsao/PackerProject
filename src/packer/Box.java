@@ -8,15 +8,14 @@ package packer;
  */
 public class Box {
     
-    /** Set the maximum allowed weight for a company standard box */
-    public int MAX_BOX_WEIGHT = 20; // Default set to 20kg
-    
-    /** Set the minimum required weight to deem a box HEAVY */
-    public int HEAVY_LIMIT = 20;
-    
     private Manifest contents;
     private Customer customer;
     private Depot depot;
+
+    /** Set the maximum allowed weight for a company standard box */
+    public int MAX_BOX_WEIGHT;
+    /** Set the minimum required weight to deem a box HEAVY */ 
+    public int HEAVY_LIMIT;    
     
     /**
      * @param customer Customer to deliver to 
@@ -26,6 +25,8 @@ public class Box {
         this.customer = customer;
         this.depot = depot;
         contents = new Manifest();
+        this.HEAVY_LIMIT = 15; // Default set to 15kg
+        this.MAX_BOX_WEIGHT = 20; // Default set to 20kg
     }
     
     /**
@@ -68,6 +69,15 @@ public class Box {
         label.append("\n*****************");
         if (this.isFragile()) {
             label.append("\n[[[[ FRAGILE ]]]]");
+        }
+        if (this.isHazardous()) {
+            label.append("\n[[[[  HAZARD ]]]]");
+        }
+        if (this.isHeavy()) {
+            label.append("\n[[[[  HEAVY  ]]]]");
+        }
+        else {
+            // Not meet criteria for a warning label
         }
         return label.toString();
     }

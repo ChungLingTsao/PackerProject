@@ -62,7 +62,8 @@ public class PackerTest {
             + "Hammer x 1\n"
             + "Danger Hammer x 5\n"
             + "*****************\n"
-            + "[[[[ FRAGILE ]]]]"
+            + "[[[[ FRAGILE ]]]]\n"
+            + "[[[[  HAZARD ]]]]"
             + "]", packedproducts.toString());
     }
     

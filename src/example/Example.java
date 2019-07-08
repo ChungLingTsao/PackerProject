@@ -42,6 +42,8 @@ public class Example {
         manifest.addProduct(new Product("Saw", 5, false, false), 1);
         manifest.addProduct(new Product("Light Bulbs", 1, false, true), 20);
         manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
+        
+        // Delibrately adding duplicate NEW product to test error handling
         manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
         
         System.out.println("\nMANIFEST (to be packed):");

@@ -84,7 +84,7 @@ public class Manifest {
      * @return The total weight of all products currently in box
      */
     public double getTotalWeight() { // LOGICAL ERROR: Function was returning TOTAL weight of A product and not TOTAL weight of ALL products
-        double weight = 0;
+        double weight;
         double total_weight = 0;  //added
         for (Product p : quantities.keySet()) {
             weight = quantities.get(p) * p.getWeight(); 
