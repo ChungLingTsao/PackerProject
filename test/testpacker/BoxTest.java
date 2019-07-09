@@ -9,6 +9,7 @@ import packer.Box;
 import packer.Coordinates;
 import packer.Customer;
 import packer.Depot;
+import packer.Manifest;
 import packer.Product;
 
 /**
@@ -28,6 +29,7 @@ public class BoxTest {
     Depot d1 = new Depot("Depot1", a1);
 
     Box b1 = new Box(cust1, d1);
+    Manifest contents;
     
     /**
      * Console output indicating start of BoxTest class.
@@ -37,7 +39,82 @@ public class BoxTest {
         System.out.println("Testing Box class...");
     }  
     
-    // Both AddProduct functions are not tested as it stores products in a manifest class.
+    /**
+     * Test of addProduct(args[0]) method, of class Box.
+     */
+    @Test
+    public void testAddProduct(){
+        System.out.println(" -addProduct(args[0])");
+        contents = new Manifest();       
+        contents.addProduct(p1);
+        assertEquals(true, contents.containsProduct(p1));
+        assertEquals("P1 x 1", contents.toString());
+        assertEquals(false, contents.containsProduct(p2));
+    }
+    
+    /**
+     * Test of addProduct(args[0],args[1]) method, of class Box.
+     */
+    @Test
+    public void testAddMultipleProducts(){
+        System.out.println(" -addProduct(args[0],args[1])");
+        contents = new Manifest();       
+        contents.addProduct(p1, 5);
+        assertEquals("P1 x 5", contents.toString());
+        contents.addProduct(p1, 2);
+        assertEquals("P1 x 7", contents.toString());
+        contents.addProduct(p2, 3);
+        assertEquals("P1 x 7\nP2 x 3", contents.toString());
+    }
+    
+    /**
+     * Test of getLabel method, of class Box.
+     */
+    @Test
+    public void testGetLabel(){
+        System.out.println(" -getLabel");
+        b1.addProduct(p1);
+        String expected = 
+            "-----------------\n"
+            + "Clera\n" 
+            + "Street1\n"
+            + "Suburb1\n"
+            + "City1\n"
+            + "123\n"
+            + "*****************\n"
+            + "P1 x 1\n"
+            + "*****************\n"
+            + "[[[[ FRAGILE ]]]]\n"
+            + "[[[[  HAZARD ]]]]\n"
+            + "[[[[  HEAVY  ]]]]";
+
+        assertEquals(expected, b1.getLabel());
+    }
+    
+    /**
+     * Test of toString method, of class Box.
+     */
+    @Test
+    public void testToString(){
+        System.out.println(" -toString");
+        b1.addProduct(p1);
+        b1.toString();
+        String expected =
+            "-----------------\n"
+            + "Clera\n" 
+            + "Street1\n"
+            + "Suburb1\n"
+            + "City1\n"
+            + "123\n"
+            + "*****************\n"
+            + "P1 x 1\n"
+            + "*****************\n"
+            + "[[[[ FRAGILE ]]]]\n"
+            + "[[[[  HAZARD ]]]]\n"
+            + "[[[[  HEAVY  ]]]]";
+
+        assertEquals(expected, b1.toString());
+    }
     
     /**
      * Test of getWeight method, of class Box.
@@ -51,17 +128,34 @@ public class BoxTest {
     }
     
     /**
-     * Test of cantFit method, of class Box.
+     * Test of canFit(arg[0]) method, of class Box.
      */
     @Test
     public void testCanFit(){
-        System.out.println(" -canFit");
+        System.out.println(" -canFit(arg[0])");
         
         b1.MAX_BOX_WEIGHT = 15;
         assertEquals(false, b1.canFit(p1));
         
         b1.MAX_BOX_WEIGHT = 25;
         assertEquals(true, b1.canFit(p1));
+    }
+    
+    /**
+     * Test of canFit(args[0],args[1]) method, of class Box.
+     */
+    @Test
+    public void testCanFitMultiple(){
+        System.out.println(" -canFit(args[0],args[1]");
+        
+        b1.MAX_BOX_WEIGHT = 60;
+        assertEquals(true, b1.canFit(p1, 3));
+        assertEquals(false, b1.canFit(p1, 4));
+        
+        b1.MAX_BOX_WEIGHT = 5;
+        assertEquals(true, b1.canFit(p2, 5));
+        assertEquals(true, b1.canFit(p1, 0));
+        assertEquals(false, b1.canFit(p2, 6));
     }
     
     /**
@@ -100,6 +194,7 @@ public class BoxTest {
      */
     @Test
     public void testIsHeavy() {
+        System.out.println(" -isHeavy");  
         b1.addProduct(p2); //p2 weight is 1kg
         assertEquals(false, b1.isHeavy());
         
