@@ -44,7 +44,7 @@ public class Product {
      * @return Validity of the product being hazardous
      */
     public boolean isHazardous() {
-        return hazardous; // LOGICAL ERROR - Was always returning false 
+        return hazardous; // LOGICAL ERROR: Was always returning false 
     }
 
     /**

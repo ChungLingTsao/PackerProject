@@ -1,6 +1,6 @@
 package packer;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -24,9 +24,9 @@ public class Manifest {
      * Constructor to initialize useful product lists
      */
     public Manifest() {
-        quantities = new LinkedHashMap<>(); // Changed to LinkedHashMap to preserve insertion order. Mainly used for testing.
+        quantities = new HashMap<>(); // WAS changed to LinkedHashMap to preserve insertion order. Mainly used for testing.
         byWeight = new TreeSet<>(new ProductWeightComparator());
-        cannotSet = new LinkedHashMap<>();
+        cannotSet = new HashMap<>();
     }
     
     /**
@@ -51,11 +51,9 @@ public class Manifest {
             quantities.put(p,quantities.get(p)+quantity); // LOGICAL ERROR: OPERATOR changed to + from *
         }
         else {
+            quantities.put(p,quantity);
             if(!byWeight.add(p)) {
                 cannotSet.put(p,1); // REFACTOR: Removed the System.out.println for easier testing and neater console output
-            }
-            else {
-                quantities.put(p,quantity); // Occurs if adding an additional quantity to existing product
             }
         }
     }
@@ -70,10 +68,10 @@ public class Manifest {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p,quantities.get(p)-1);
         }
-        else if (quantities.get(p) == 0) { // Changed to 'ELSE IF' incase quantities gets set to 0 in previous IF statement
+        else if (quantities.get(p) == 0) { // LOGICAL ERROR: Changed to 'ELSE IF' incase quantities gets set to 0 in previous IF statement
             quantities.remove(p); 
         }
-        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  // LOGICAL ERROR, ADDED quantity = 0 criteria when removing fom byWeight
+        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  // LOGICAL ERROR: Added 'quantities.get(p) = 0' condition when removing fom byWeight
             byWeight.remove(p);
         }
     }
@@ -85,12 +83,12 @@ public class Manifest {
      */
     public double getTotalWeight() { // LOGICAL ERROR: Function was returning TOTAL weight of A product and not TOTAL weight of ALL products
         double weight;
-        double total_weight = 0;  //added
+        double total_weight = 0;  // ADDED
         for (Product p : quantities.keySet()) {
             weight = quantities.get(p) * p.getWeight(); 
-            total_weight = total_weight + weight; //added
+            total_weight = total_weight + weight; // ADDED
         }
-        return total_weight; //changed to total_weight
+        return total_weight; // CHANGED to total_weight
     }
 
     /**
@@ -155,7 +153,7 @@ public class Manifest {
     /**
      * @return Validity if the Quantities map contains a hazardous product
      */        
-    public boolean hasHazardousItems() { // Created to detect if any hazardous items in manifest
+    public boolean hasHazardousItems() { // ADDED: To detect if any hazardous items in manifest
         for (Product p : quantities.keySet()) {
             if (p.isHazardous()) {
                 return true;
@@ -169,7 +167,7 @@ public class Manifest {
      * 
      * @return The string listing all products that cannot be set, 'N/A' is none exists
      */        
-    public String cannotSetProduct() { // Created during refactoring of AddProduct Function to detect products that cannot be set.
+    public String cannotSetProduct() { // ADDED: Created during refactoring of AddProduct Function to detect products that cannot be set.
         if (cannotSet.isEmpty()) {
             return "N/A";
         }
@@ -178,4 +176,4 @@ public class Manifest {
         }
     }
     
-} // } added bracket to close class
+} // SYNTAX ERROR: '}' bracket to close class

@@ -23,13 +23,13 @@ public class Depot {
      * @return The name of the depot
      */
     public String getName() {  
-      return name; //SYNTAX ERROR: was returning address, not name
+      return name; // LOGICAL ERROR: was returning address, not name
     }
     
     /**
      * @return The address of the depot
      */        
-    public String getAddress() { // Created a GETTER function for Address 
+    public String getAddress() { // REFACTOR: Created GETTER function for unused Address variable
         return address.toString();   
     }
     
@@ -47,7 +47,7 @@ public class Depot {
      */
     @Override
     public String toString() {
-        return this.getAddress(); //SYNTAX ERROR: changed getName to new getAddress
+        return this.getAddress(); // LOGICAL ERROR: changed getName to new getAddress
     }
     
 }

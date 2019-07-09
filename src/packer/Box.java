@@ -70,14 +70,14 @@ public class Box {
         if (this.isFragile()) {
             label.append("\n[[[[ FRAGILE ]]]]");
         }
-        if (this.isHazardous()) {
+        if (this.isHazardous()) { // ADDED
             label.append("\n[[[[  HAZARD ]]]]");
         }
-        if (this.isHeavy()) {
+        if (this.isHeavy()) { // ADDED
             label.append("\n[[[[  HEAVY  ]]]]");
         }
         else {
-            // Not meet criteria for a warning label
+            // ADDED to represent 'product does not meet criteria for a warning label'
         }
         return label.toString();
     }
@@ -97,7 +97,7 @@ public class Box {
         return contents.getTotalWeight(); // SYNTAX ERROR - getTotalWeight NOT getWeight 
     }
     
-    // FIX: Removed duplicate addProduct(arg) Function
+    // SYNTAX ERROR: Removed duplicate addProduct(arg) Function
     
     /**
      * @param p The product to check if it can still fit in the box
@@ -133,14 +133,14 @@ public class Box {
     /**
      * @return Validity of the box containing hazardous items
      */
-    public boolean isHazardous() { // Getter function added as 'hazardous' field appears in the constructor of Product
-        return contents.hasHazardousItems(); // LOGICAL ERROR: Was false causing no boxes to be hazardous
+    public boolean isHazardous() { 
+        return contents.hasHazardousItems(); // LOGICAL ERROR: Was returning false causing no boxes to be hazardous
     }
     
     /**
      * @return Validity of the box being too heavy
      */
-    public boolean isHeavy() {
+    public boolean isHeavy() { // Added for Heavy Label
         return contents.getTotalWeight() >= HEAVY_LIMIT;
     }
     

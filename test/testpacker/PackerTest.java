@@ -1,8 +1,10 @@
 package testpacker;
 
 import java.util.List;
+import org.hamcrest.CoreMatchers;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import packer.Address;
@@ -50,8 +52,7 @@ public class PackerTest {
         manifest.addProduct(product2, 5);
         List<Box> packedproducts = Packer.packProducts(customer, depot, manifest);
         
-        assertEquals(
-            "["
+        String expected = "["
             + "-----------------\n"
             + "Andy Bravo\n"
             + "67 Torch Rd\n"
@@ -64,7 +65,24 @@ public class PackerTest {
             + "*****************\n"
             + "[[[[ FRAGILE ]]]]\n"
             + "[[[[  HAZARD ]]]]"
-            + "]", packedproducts.toString());
+            + "]";
+
+        String expected2 = "["
+            + "-----------------\n"
+            + "Andy Bravo\n"
+            + "67 Torch Rd\n"
+            + "Treeline\n"
+            + "Mt High\n"
+            + "T799\n"
+            + "*****************\n" 
+            + "Danger Hammer x 5\n"
+            + "Hammer x 1\n"
+            + "*****************\n"
+            + "[[[[ FRAGILE ]]]]\n"
+            + "[[[[  HAZARD ]]]]"
+            + "]";
+        
+        assertThat(packedproducts.toString(), CoreMatchers.either(CoreMatchers.is(expected)).or(CoreMatchers.is(expected2)));
     }
     
     /**

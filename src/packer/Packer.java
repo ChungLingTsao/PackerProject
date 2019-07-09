@@ -25,7 +25,7 @@ public class Packer {
       
         while (!m.isEmpty()) { // repeat until all items are packed
             if (b == null) {
-                b = new Box(c, d); // LOGICAL ERROR - Arguments for Box object in wrong order round
+                b = new Box(c, d); // SYNTAX ERROR: Arguments for Box in wrong order. 
             }
 
             Product prodToAdd = m.getHeaviestUnder(b.remainingCapacity());
@@ -41,9 +41,8 @@ public class Packer {
         }
 
         if (b != null) {
-            packedBoxes.add(b); //LOGICAL ERROR - There was a duplicate line
+            packedBoxes.add(b); // LOGICAL ERROR: There was a duplicate line adding an extra box
         }
-
         return packedBoxes;  
     }
     

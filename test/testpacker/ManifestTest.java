@@ -6,6 +6,8 @@ import org.junit.Test;
 import packer.Manifest;
 import packer.Product;
 import org.junit.AfterClass;
+import org.hamcrest.CoreMatchers;
+import static org.junit.Assert.assertThat;
 
 /**
  * Test class for Manifest.java
@@ -38,8 +40,8 @@ public class ManifestTest {
 
         manifest.addProduct(product);
         manifest.addProduct(product2, 1);
-        assertEquals("Hammer x 1\nDanger Hammer x 1", manifest.toString());
-        
+        assertThat(manifest.toString(), CoreMatchers.either(CoreMatchers.is("Hammer x 1\nDanger Hammer x 1")).or(CoreMatchers.is("Danger Hammer x 1\nHammer x 1")));
+        //assertEquals("Hammer x 1\nDanger Hammer x 1", manifest.toString());
         manifest.addProduct(product3, 1);
         assertEquals("Couldn't add 'Hammer' to Set", manifest.cannotSetProduct());
     }
@@ -115,7 +117,7 @@ public class ManifestTest {
         assertEquals("Hammer x 1", manifest.toString());
         
         manifest.addProduct(product2, 5);
-        assertEquals("Hammer x 1\nDanger Hammer x 5", manifest.toString());
+        assertThat(manifest.toString(), CoreMatchers.either(CoreMatchers.is("Hammer x 1\nDanger Hammer x 5")).or(CoreMatchers.is("Danger Hammer x 5\nHammer x 1")));
     }
 
     /**
