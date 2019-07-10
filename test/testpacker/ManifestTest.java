@@ -40,7 +40,10 @@ public class ManifestTest {
 
         manifest.addProduct(product);
         manifest.addProduct(product2);
-        assertThat(manifest.toString(), CoreMatchers.either(CoreMatchers.is("Hammer x 1\nDanger Hammer x 1")).or(CoreMatchers.is("Danger Hammer x 1\nHammer x 1")));
+        assertThat(manifest.toString(), 
+                CoreMatchers.either(
+                        CoreMatchers.is("Hammer x 1\nDanger Hammer x 1"))
+                        .or(CoreMatchers.is("Danger Hammer x 1\nHammer x 1")));
         manifest.addProduct(dup_product);
         assertEquals("Couldn't add 'Hammer' to Set", manifest.cannotSetProduct());
     }
@@ -54,7 +57,10 @@ public class ManifestTest {
 
         manifest.addProduct(product, 5);
         manifest.addProduct(product2, 2);
-        assertThat(manifest.toString(), CoreMatchers.either(CoreMatchers.is("Hammer x 5\nDanger Hammer x 2")).or(CoreMatchers.is("Danger Hammer x 2\nHammer x 5")));
+        assertThat(manifest.toString(),
+                CoreMatchers.either(
+                        CoreMatchers.is("Hammer x 5\nDanger Hammer x 2"))
+                        .or(CoreMatchers.is("Danger Hammer x 2\nHammer x 5")));
         manifest.addProduct(dup_product, 2);
         assertEquals("Couldn't add 'Hammer' to Set", manifest.cannotSetProduct());
     }
@@ -130,7 +136,10 @@ public class ManifestTest {
         assertEquals("Hammer x 1", manifest.toString());
         
         manifest.addProduct(product2, 5);
-        assertThat(manifest.toString(), CoreMatchers.either(CoreMatchers.is("Hammer x 1\nDanger Hammer x 5")).or(CoreMatchers.is("Danger Hammer x 5\nHammer x 1")));
+        assertThat(manifest.toString(),
+                CoreMatchers.either(
+                        CoreMatchers.is("Hammer x 1\nDanger Hammer x 5"))
+                        .or(CoreMatchers.is("Danger Hammer x 5\nHammer x 1")));
     }
 
     /**
@@ -167,7 +176,7 @@ public class ManifestTest {
         System.out.println(" -cannotSetProduct");
         
         manifest.addProduct(product);
-        assertEquals("N/A", manifest.cannotSetProduct());
+        assertEquals(null, manifest.cannotSetProduct());
         
         manifest.addProduct(dup_product);
         assertEquals("Couldn't add 'Hammer' to Set", manifest.cannotSetProduct());

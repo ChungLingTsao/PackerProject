@@ -18,17 +18,17 @@ import packer.Depot;
 public class CustomerTest {
 
     // Test data
-    Coordinates testCoordinates0 = new Coordinates(0,0);
-    Coordinates testCoordinates1 = new Coordinates(3,4);
-    Coordinates testCoordinates2 = new Coordinates(30,40);
-    Coordinates testCoordinates3 = new Coordinates(300, 400);
-    Coordinates testCoordinates4 = new Coordinates(3000, 4000);
+    Coordinates Coord0 = new Coordinates(0,0);
+    Coordinates Coord1 = new Coordinates(3,4);
+    Coordinates Coord2 = new Coordinates(30,40);
+    Coordinates Coord3 = new Coordinates(300, 400);
+    Coordinates Coord4 = new Coordinates(3000, 4000);
     
-    Address testAddress0 = new Address("111 Emerge Rd", "Really", "Inn Town", "D444", testCoordinates0);
-    Address testAddress1 = new Address("1 First St", "Aplace", "Citadel City", "A111", testCoordinates1);
-    Address testAddress2 = new Address("123 Count St", "Brooklyn", "Welling Town", "B222", testCoordinates2);
-    Address testAddress3 = new Address("321 Back St", "Christly", "Holly Oaks", "C333", testCoordinates3);
-    Address testAddress4 = new Address("55 Some St", "Somewhere", "Elsewhere", "E555", testCoordinates4);
+    Address testAddress0 = new Address("111 Emerge Rd", "Really", "Inn Town", "D444", Coord0);
+    Address testAddress1 = new Address("1 First St", "Aplace", "Citadel City", "A111", Coord1);
+    Address testAddress2 = new Address("123 Count St", "Brooklyn", "Welling Town", "B222", Coord2);
+    Address testAddress3 = new Address("321 Back St", "Christly", "Holly Oaks", "C333", Coord3);
+    Address testAddress4 = new Address("55 Some St", "Somewhere", "Elsewhere", "E555", Coord4);
     
     Depot testDepot0 = new Depot("Test Depot", testAddress0);
     Depot testDepot4 = new Depot("Test Depot", testAddress4);
@@ -46,7 +46,8 @@ public class CustomerTest {
      */
     @Test
     public void testGetClosestAddressTo() {
-        // Maybe this should be broken int three tests.
+        // ^ WAS AN ERROR: Test originally failed due wrong implementation of getClsestAddressTo
+        // Maybe this should be broken int three tests. 
         System.out.println(" -getClosestAddressTo");
         Customer testCustomer;
         

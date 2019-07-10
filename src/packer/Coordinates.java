@@ -59,7 +59,7 @@ public class Coordinates {
 
     /**
      * @param other Coordinate location of the other point
-     * @return The distance between a point and another point using the company's proprietary distance metric
+     * @return Distance between point-to-point using the company's proprietary distance metric
      */     
     public double companyDistanceTo(Coordinates other) {
         double xDiff1 = other.getX() - this.getX();
@@ -68,7 +68,7 @@ public class Coordinates {
         double xDiff2 = other.getX() - this.getX();
         double yDiff2 = other.getY() - this.getY();
         double dist2 = Math.abs(xDiff2) + Math.abs(yDiff2);
-        return (dist1 + dist2)/2 + 1; // LOGICAL ERROR: was missing +1 (km) for the company's proprietary distance metric
+        return (dist1 + dist2)/2 + 1; // LOGICAL ERROR: was missing +1 (proprietary distance metric)
     }
     
 }

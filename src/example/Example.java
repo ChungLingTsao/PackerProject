@@ -23,13 +23,19 @@ public class Example {
      */
     public static void main(String[] args) {
         
-        Address depotAddress = new Address("23 Good Luck St", "Blue View", "Sandy Shores", "H337", new Coordinates(138, 995));
+        Address depotAddress = new Address("23 Good Luck St", "Blue View", "Sandy Shores", "H337", 
+                new Coordinates(138, 995));
+        
         Depot depot = new Depot("Main Depot", depotAddress);
         System.out.println("\nDEPOT:");
         System.out.println(depot);
         
-        Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799", new Coordinates(1102, 87));
-        Address customerAddress2 = new Address("88 Camp Mine St", "Ridgeway", "Lowe Valley", "I998", new Coordinates(100, 34));
+        Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799",
+                new Coordinates(1102, 87));
+        
+        Address customerAddress2 = new Address("88 Camp Mine St", "Ridgeway", "Lowe Valley", "I998", 
+                new Coordinates(100, 34));
+        
         Customer customer = new Customer("Andy Bravo", customerAddress1);
         customer.addAddress(customerAddress2);
         System.out.println("\nCUSTOMER:"); // Added ":" to match other headings
@@ -43,7 +49,7 @@ public class Example {
         manifest.addProduct(new Product("Light Bulbs", 1, false, true), 20);
         manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
         
-        // Delibrately adding duplicate NEW product to test error handling
+        // Delibrately adding duplicate NEW product to test error handling (can remove)
         manifest.addProduct(new Product("Weedkiller", 2, true, false), 1);
         
         System.out.println("\nMANIFEST (to be packed):");

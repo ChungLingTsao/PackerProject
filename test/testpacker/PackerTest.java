@@ -3,7 +3,6 @@ package testpacker;
 import java.util.List;
 import org.hamcrest.CoreMatchers;
 import org.junit.AfterClass;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,14 +24,21 @@ import packer.Product;
 public class PackerTest {
   
     // Test data
-    Address depotAddress = new Address("23 Good Luck St", "Blue View", "Sandy Shores", "H337", new Coordinates(138, 995));
+    Coordinates Coord0 = new Coordinates(138, 995);
+    Coordinates Coord1 = new Coordinates(1102, 87);
+    
+    Address depotAddress = new Address("Test", "Blue View", "Sandy Shores", "H337", Coord0);
     Depot depot = new Depot("Main Depot", depotAddress);
-    Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799", new Coordinates(1102, 87));
+    
+    Address customerAddress1 = new Address("67 Torch Rd", "Treeline", "Mt High", "T799", Coord1);
     Customer customer = new Customer("Andy Bravo", customerAddress1);
 
     Manifest manifest = new Manifest();
     Product product = new Product("Hammer", 3, false, false);
     Product product2 = new Product("Danger Hammer", 1, true, true);
+    
+    String expected; 
+    String expected2;
     
     /**
      * Console output indicating start of PackerTest class.
@@ -52,7 +58,7 @@ public class PackerTest {
         manifest.addProduct(product2, 5);
         List<Box> packedproducts = Packer.packProducts(customer, depot, manifest);
         
-        String expected = "["
+        expected = "["
             + "-----------------\n"
             + "Andy Bravo\n"
             + "67 Torch Rd\n"
@@ -67,7 +73,7 @@ public class PackerTest {
             + "[[[[  HAZARD ]]]]"
             + "]";
 
-        String expected2 = "["
+        expected2 = "["
             + "-----------------\n"
             + "Andy Bravo\n"
             + "67 Torch Rd\n"
@@ -82,7 +88,8 @@ public class PackerTest {
             + "[[[[  HAZARD ]]]]"
             + "]";
         
-        assertThat(packedproducts.toString(), CoreMatchers.either(CoreMatchers.is(expected)).or(CoreMatchers.is(expected2)));
+        assertThat(packedproducts.toString(), 
+                CoreMatchers.either(CoreMatchers.is(expected)).or(CoreMatchers.is(expected2)));
     }
     
     /**

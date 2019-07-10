@@ -65,7 +65,8 @@ public class Product {
     }
 
     /**
-     * Overrides the equals(args) from the Java Standard Library to return the validity of a product name equaling the name of a product.
+     * Overrides the equals(args) from the Java Standard Library to return the validity of a product
+     * name equaling the name of a product.
      * 
      * @param o The product object that is being examined
      * @return Validity of a product name being the name of the product

@@ -19,9 +19,13 @@ public class AddressTest {
     Coordinates testCoordinates1 = new Coordinates(0,0);
     Coordinates testCoordinates2 = new Coordinates(30,40);
     Coordinates testCoordinates3 = new Coordinates(1000, 2000);
-    Address testAddress1 = new Address("1 First St", "Aplace", "Citadel City", "A111", testCoordinates1);
-    Address testAddress2 = new Address("123 Count St", "Brooklyn", "Welling Town", "B222", testCoordinates2);
-    Address testAddress3 = new Address("321 Back St", "Christly", "Holly Oaks", "C333", testCoordinates3);
+    
+    Address testAddress1 = 
+            new Address("1 First St", "Aplace", "Citadel City", "A111", testCoordinates1);
+    Address testAddress2 = new Address(
+            "123 Count St", "Brooklyn", "Welling Town", "B222", testCoordinates2);
+    Address testAddress3 = new Address(
+            "321 Back St", "Christly", "Holly Oaks", "C333", testCoordinates3);
 
     /**
      * Console output indicating start of AddressTest class.

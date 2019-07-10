@@ -24,7 +24,7 @@ public class Manifest {
      * Constructor to initialize useful product lists
      */
     public Manifest() {
-        quantities = new HashMap<>(); // WAS changed to LinkedHashMap to preserve insertion order. Mainly used for testing.
+        quantities = new HashMap<>();
         byWeight = new TreeSet<>(new ProductWeightComparator());
         cannotSet = new HashMap<>();
     }
@@ -48,12 +48,13 @@ public class Manifest {
      */
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)+quantity); // LOGICAL ERROR: OPERATOR changed to + from *
+            quantities.put(p,quantities.get(p)+quantity); // LOGICAL ERROR: Changed to '+' from '*'
         }
         else {
             quantities.put(p,quantity);
             if(!byWeight.add(p)) {
-                cannotSet.put(p,1); // REFACTOR: Removed the System.out.println for easier testing and neater console output
+                cannotSet.put(p,1); 
+                // ^ REFACTOR: Removed the System.out line for better testing and console output
             }
         }
     }
@@ -68,20 +69,24 @@ public class Manifest {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p,quantities.get(p)-1);
         }
-        else if (quantities.get(p) == 0) { // LOGICAL ERROR: Changed to 'ELSE IF' incase quantities gets set to 0 in previous IF statement
+        else if (quantities.get(p) == 0) { 
+            // ^ LOGICAL ERROR: Changed to ELSE IF incase quantities set to 0 in previous statement
             quantities.remove(p); 
         }
-        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  // LOGICAL ERROR: Added 'quantities.get(p) = 0' condition when removing fom byWeight
+        if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  
+            // ^ LOGICAL ERROR: Added 'quantities.get(p) = 0' condition when removing fom byWeight
             byWeight.remove(p);
         }
     }
     
     /**
-     * Gets the total weight of all products in the Quantities map (i.e. Current total weight of box)
+     * Get the total weight of all products in the Quantities map (i.e. Current total weight of box)
      * 
      * @return The total weight of all products currently in box
      */
-    public double getTotalWeight() { // LOGICAL ERROR: Function was returning TOTAL weight of A product and not TOTAL weight of ALL products
+    public double getTotalWeight() { 
+        // LOGICAL ERROR: Function was returning TOTAL weight of the quantities of one product 
+        // and not the TOTAL weight of the quantities of ALL products
         double weight;
         double total_weight = 0;  // ADDED
         for (Product p : quantities.keySet()) {
@@ -122,7 +127,8 @@ public class Manifest {
     }
     
     /**
-     * Overrides the toString() from the Java Standard Library to return a string containing the quantities of products in the Quantities map 
+     * Overrides the toString() from the Java Standard Library to return a string containing the 
+     * quantities of products in the Quantities map 
      * 
      * @return The string listing all the quantities of the products in the Quantities map
      */
@@ -165,14 +171,18 @@ public class Manifest {
     /**
      * Generates a string for all items that cannot be set into the manifest.
      * 
-     * @return The string listing all products that cannot be set, 'N/A' is none exists
+     * @return The string listing all products that cannot be set, null is none exists
      */        
-    public String cannotSetProduct() { // ADDED: Created during refactoring of AddProduct Function to detect products that cannot be set.
+    public String cannotSetProduct() { 
+        // ^ ADDED: Created during refactoring of AddProduct Function to detect products that 
+        // cannot be set.
         if (cannotSet.isEmpty()) {
-            return "N/A";
+            return null;
         }
         else {
-            return String.format("Couldn't add '%s' to Set", cannotSet.keySet().toString().replace("[", "").replace("]", ""));
+            return String.format(
+                    "Couldn't add '%s' to Set", 
+                    cannotSet.keySet().toString().replace("[", "").replace("]", ""));
         }
     }
     

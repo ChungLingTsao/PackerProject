@@ -30,6 +30,7 @@ public class BoxTest {
 
     Box b1 = new Box(cust1, d1);
     Manifest contents;
+    String expected;
     
     /**
      * Console output indicating start of BoxTest class.
@@ -74,19 +75,19 @@ public class BoxTest {
     public void testGetLabel(){
         System.out.println(" -getLabel");
         b1.addProduct(p1);
-        String expected = 
-            "-----------------\n"
-            + "Clera\n" 
-            + "Street1\n"
-            + "Suburb1\n"
-            + "City1\n"
-            + "123\n"
-            + "*****************\n"
-            + "P1 x 1\n"
-            + "*****************\n"
-            + "[[[[ FRAGILE ]]]]\n"
-            + "[[[[  HAZARD ]]]]\n"
-            + "[[[[  HEAVY  ]]]]";
+        
+        expected = "-----------------\n"
+              + "Clera\n"
+              + "Street1\n"
+              + "Suburb1\n"
+              + "City1\n"
+              + "123\n"
+              + "*****************\n"
+              + "P1 x 1\n"
+              + "*****************\n"
+              + "[[[[ FRAGILE ]]]]\n"
+              + "[[[[  HAZARD ]]]]\n"
+              + "[[[[  HEAVY  ]]]]";
 
         assertEquals(expected, b1.getLabel());
     }
@@ -99,7 +100,8 @@ public class BoxTest {
         System.out.println(" -toString");
         b1.addProduct(p1);
         b1.toString();
-        String expected =
+        
+        expected =
             "-----------------\n"
             + "Clera\n" 
             + "Street1\n"

@@ -15,7 +15,7 @@ public class Box {
     /** Set the maximum allowed weight for a company standard box */
     public int MAX_BOX_WEIGHT;
     /** Set the minimum required weight to deem a box HEAVY */ 
-    public int HEAVY_LIMIT;    
+    public int HEAVY_LIMIT;
     
     /**
      * @param customer Customer to deliver to 
@@ -104,7 +104,8 @@ public class Box {
      * @return Validity of the product fitting in the box
      */
     public boolean canFit(Product p) {
-        return p.getWeight() <= MAX_BOX_WEIGHT; // LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
+        return p.getWeight() <= MAX_BOX_WEIGHT; 
+        // ^ LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
     
     /**
@@ -113,7 +114,8 @@ public class Box {
      * @return Validity of the total quantity of the product fitting in the box
      */
     public boolean canFit(Product p, int quantity) {
-        return (p.getWeight() * quantity) <= MAX_BOX_WEIGHT; // LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
+        return (p.getWeight() * quantity) <= MAX_BOX_WEIGHT; 
+        // ^ LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
 
     /**
@@ -134,7 +136,8 @@ public class Box {
      * @return Validity of the box containing hazardous items
      */
     public boolean isHazardous() { 
-        return contents.hasHazardousItems(); // LOGICAL ERROR: Was returning false causing no boxes to be hazardous
+        return contents.hasHazardousItems();
+        // ^ LOGICAL ERROR: Was returning false causing no boxes to be hazardous
     }
     
     /**

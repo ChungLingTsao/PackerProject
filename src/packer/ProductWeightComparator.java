@@ -11,7 +11,8 @@ import java.util.Comparator;
 public class ProductWeightComparator implements Comparator<Product> {
     
     /**
-     * Compares the weight of two products and returns a value that determines whether or not it is swapped in the list
+     * Compares the weight of two products and returns a value that determines whether or not it is 
+     * swapped in the list
      * 
      * @param a First product to compare weight to 
      * @param b Second product to compare weight to 

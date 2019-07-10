@@ -21,7 +21,8 @@ public class Address {
      * @param postcode Postcode of Address
      * @param coordinates Coordinates of Address
      */
-    public Address(String street, String suburb, String city, String postcode, Coordinates coordinates) {
+    public Address(String street, String suburb, String city, String postcode, 
+            Coordinates coordinates) {
         this.street = street;
         this.suburb = suburb;
         this.city = city;

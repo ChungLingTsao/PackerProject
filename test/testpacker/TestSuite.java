@@ -24,7 +24,7 @@ import org.junit.runners.Suite;
 })
 
 public class TestSuite {
-   
+
     /**
      * Console output indicating start of Test Suite.
      */
