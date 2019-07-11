@@ -5,7 +5,7 @@ package packer;
  * Also determines distances from two coordinates using a proprietary distance metric.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Coordinates {
     
@@ -68,7 +68,7 @@ public class Coordinates {
         double xDiff2 = other.getX() - this.getX();
         double yDiff2 = other.getY() - this.getY();
         double dist2 = Math.abs(xDiff2) + Math.abs(yDiff2);
-        return (dist1 + dist2)/2 + 1; // LOGICAL ERROR: was missing +1 (proprietary distance metric)
+        return (dist1 + dist2)/2 + 1;
     }
     
 }

@@ -9,7 +9,7 @@ import org.junit.runners.Suite;
  * Test Suite for Packer Program
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

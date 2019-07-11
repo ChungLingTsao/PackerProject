@@ -4,6 +4,6 @@
  * These class files make up the functionality of the packer program.
  *
  * @author Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 package packer;

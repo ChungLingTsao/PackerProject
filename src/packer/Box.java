@@ -4,7 +4,7 @@ package packer;
  * Represents a box used by the company for packaging products.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Box {
     
@@ -25,8 +25,8 @@ public class Box {
         this.customer = customer;
         this.depot = depot;
         contents = new Manifest();
-        this.HEAVY_LIMIT = 15; // Default set to 15kg
-        this.MAX_BOX_WEIGHT = 20; // Default set to 20kg
+        this.HEAVY_LIMIT = 15;
+        this.MAX_BOX_WEIGHT = 20;
     }
     
     /**
@@ -57,7 +57,7 @@ public class Box {
      * 
      * @return String Label for the box
      */    
-    public String getLabel() { // REFACTOR: Adjusted for output readibility
+    public String getLabel() {
         StringBuilder label = new StringBuilder();
         label.append("-----------------\n");
         label.append(customer);
@@ -70,14 +70,13 @@ public class Box {
         if (this.isFragile()) {
             label.append("\n[[[[ FRAGILE ]]]]");
         }
-        if (this.isHazardous()) { // ADDED
+        if (this.isHazardous()) {
             label.append("\n[[[[  HAZARD ]]]]");
         }
-        if (this.isHeavy()) { // ADDED
+        if (this.isHeavy()) {
             label.append("\n[[[[  HEAVY  ]]]]");
         }
         else {
-            // ADDED to represent 'product does not meet criteria for a warning label'
         }
         return label.toString();
     }
@@ -94,10 +93,8 @@ public class Box {
      * @return Weight of the box (in kilograms)
      */
     public double getWeight() {
-        return contents.getTotalWeight(); // SYNTAX ERROR - getTotalWeight NOT getWeight 
+        return contents.getTotalWeight();
     }
-    
-    // SYNTAX ERROR: Removed duplicate addProduct(arg) Function
     
     /**
      * @param p The product to check if it can still fit in the box
@@ -105,7 +102,6 @@ public class Box {
      */
     public boolean canFit(Product p) {
         return p.getWeight() <= MAX_BOX_WEIGHT; 
-        // ^ LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
     
     /**
@@ -115,7 +111,6 @@ public class Box {
      */
     public boolean canFit(Product p, int quantity) {
         return (p.getWeight() * quantity) <= MAX_BOX_WEIGHT; 
-        // ^ LOGICAL ERROR - DID NOT TAKE INTO ACCOUNT if WEIGHT is equal. CHANGED from < to <=.
     }
 
     /**
@@ -137,13 +132,12 @@ public class Box {
      */
     public boolean isHazardous() { 
         return contents.hasHazardousItems();
-        // ^ LOGICAL ERROR: Was returning false causing no boxes to be hazardous
     }
     
     /**
      * @return Validity of the box being too heavy
      */
-    public boolean isHeavy() { // Added for Heavy Label
+    public boolean isHeavy() {
         return contents.getTotalWeight() >= HEAVY_LIMIT;
     }
     

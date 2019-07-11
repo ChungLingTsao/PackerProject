@@ -7,7 +7,7 @@ import java.util.List;
  * Represents a packer that is efficient at packing full boxes.
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Packer {
 
@@ -23,9 +23,9 @@ public class Packer {
         List<Box> packedBoxes = new ArrayList<>();
         Box b = null;
       
-        while (!m.isEmpty()) { // repeat until all items are packed
+        while (!m.isEmpty()) { 
             if (b == null) {
-                b = new Box(c, d); // SYNTAX ERROR: Arguments for Box in wrong order. 
+                b = new Box(c, d); 
             }
 
             Product prodToAdd = m.getHeaviestUnder(b.remainingCapacity());
@@ -41,7 +41,7 @@ public class Packer {
         }
 
         if (b != null) {
-            packedBoxes.add(b); // LOGICAL ERROR: There was a duplicate line adding an extra box
+            packedBoxes.add(b);
         }
         return packedBoxes;  
     }

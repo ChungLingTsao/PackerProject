@@ -7,7 +7,7 @@ import java.util.List;
  * Represents a customer for the company.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Customer {
     
@@ -50,7 +50,6 @@ public class Customer {
             if (distance < bestDistance) {
                 bestAddress = a;
                 bestDistance = distance;
-                // ^ LOGICAL ERROR: bestDistance now set properly instead of remaining at MAX_VALUE
             }
         }
         return bestAddress;

@@ -5,7 +5,7 @@ package packer;
  * A customer can have multiple addresses.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Address {
     private String street;

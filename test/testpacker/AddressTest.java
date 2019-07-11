@@ -11,7 +11,7 @@ import packer.Coordinates;
  * Test class for Address.java
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class AddressTest {
     

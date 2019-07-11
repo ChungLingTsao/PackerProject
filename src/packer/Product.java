@@ -4,7 +4,7 @@ package packer;
  * Represents a products that is to be delivered to a customer.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Product {
 
@@ -44,7 +44,7 @@ public class Product {
      * @return Validity of the product being hazardous
      */
     public boolean isHazardous() {
-        return hazardous; // LOGICAL ERROR: Was always returning false 
+        return hazardous;
     }
 
     /**

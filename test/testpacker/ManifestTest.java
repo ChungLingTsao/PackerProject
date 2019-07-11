@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
  * Test class for Manifest.java
  * 
  * @author Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class ManifestTest {
 

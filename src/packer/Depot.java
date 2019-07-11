@@ -4,7 +4,7 @@ package packer;
  * Represents a depot that is able to dispatch products to customers.
  *
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Depot {
     private String name;
@@ -23,13 +23,13 @@ public class Depot {
      * @return The name of the depot
      */
     public String getName() {  
-      return name; // LOGICAL ERROR: was returning address, not name
+      return name;
     }
     
     /**
      * @return The address of the depot
      */        
-    public String getAddress() { // REFACTOR: Created GETTER function for unused Address variable
+    public String getAddress() {
         return address.toString();   
     }
     
@@ -47,7 +47,7 @@ public class Depot {
      */
     @Override
     public String toString() {
-        return this.getAddress(); // LOGICAL ERROR: changed getName to new getAddress
+        return this.getAddress();
     }
     
 }

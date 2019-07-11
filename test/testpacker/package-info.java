@@ -4,6 +4,6 @@
  * These test files can be ran individually or all together by running the TestSuite.
  *
  * @author Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 package testpacker;

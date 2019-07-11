@@ -16,7 +16,7 @@ import packer.Product;
  * Test class for Box.java
  * 
  * @author Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class BoxTest {
     

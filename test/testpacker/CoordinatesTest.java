@@ -10,7 +10,7 @@ import packer.Coordinates;
  * Test class for Coordinates.java
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class CoordinatesTest {
     
@@ -78,14 +78,11 @@ public class CoordinatesTest {
      * Test of companyDistanceTo method, of class Coordinates.
      */
     @Test
-    public void testCompanyDistanceTo() { // ERROR FIX: All assertEquals were 1km too much
+    public void testCompanyDistanceTo() {
         System.out.println(" -companyDistanceTo");
         assertEquals(61.0, testCoordinates1.companyDistanceTo(testCoordinates2), DELTA);  
-        // ^ WAS AN ERROR (50.0+70.0)/2 = 60.0 NOT 61.0
         assertEquals(2619.0340, testCoordinates1.companyDistanceTo(testCoordinates3), DELTA); 
-        // ^ WAS AN ERROR (2236.0679+3000)/2 = 2618.0340 NOT 2619.0340
         assertEquals(2559.4464, testCoordinates2.companyDistanceTo(testCoordinates3), DELTA); 
-        // ^ WAS AN ERROR (2186.8928+2910)/2 = 2558.4464 NOT 2559.4464
     }
 
     /**

@@ -13,7 +13,7 @@ import packer.Depot;
  * Test class for Customer.java
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class CustomerTest {
 
@@ -46,8 +46,6 @@ public class CustomerTest {
      */
     @Test
     public void testGetClosestAddressTo() {
-        // ^ WAS AN ERROR: Test originally failed due wrong implementation of getClsestAddressTo
-        // Maybe this should be broken int three tests. 
         System.out.println(" -getClosestAddressTo");
         Customer testCustomer;
         

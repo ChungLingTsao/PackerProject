@@ -10,7 +10,7 @@ import packer.Product;
  * Test class for Product.java
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class ProductTest {
     

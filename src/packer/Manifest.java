@@ -9,15 +9,12 @@ import java.util.TreeSet;
  * Represents a manifest that lists a customer's products that is ready to be packed.
  * 
  * @author I.M.Bad, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Manifest {
     
-    // This tracks the quantity if each product in the manifest
     private Map<Product, Integer> quantities;
-    // This keeps a list of all products ordered by weight
     private Set<Product> byWeight;
-    // This tracks the products that cannot be added to the manifest
     private Map<Product, Integer> cannotSet;
 
     /**
@@ -48,13 +45,12 @@ public class Manifest {
      */
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)+quantity); // LOGICAL ERROR: Changed to '+' from '*'
+            quantities.put(p,quantities.get(p)+quantity);
         }
         else {
             quantities.put(p,quantity);
             if(!byWeight.add(p)) {
                 cannotSet.put(p,1); 
-                // ^ REFACTOR: Removed the System.out line for better testing and console output
             }
         }
     }
@@ -70,11 +66,9 @@ public class Manifest {
             quantities.put(p,quantities.get(p)-1);
         }
         else if (quantities.get(p) == 0) { 
-            // ^ LOGICAL ERROR: Changed to ELSE IF incase quantities set to 0 in previous statement
             quantities.remove(p); 
         }
         if (quantities.containsKey(p) && quantities.get(p) == 0 ) {  
-            // ^ LOGICAL ERROR: Added 'quantities.get(p) = 0' condition when removing fom byWeight
             byWeight.remove(p);
         }
     }
@@ -85,15 +79,13 @@ public class Manifest {
      * @return The total weight of all products currently in box
      */
     public double getTotalWeight() { 
-        // LOGICAL ERROR: Function was returning TOTAL weight of the quantities of one product 
-        // and not the TOTAL weight of the quantities of ALL products
         double weight;
-        double total_weight = 0;  // ADDED
+        double total_weight = 0;
         for (Product p : quantities.keySet()) {
             weight = quantities.get(p) * p.getWeight(); 
-            total_weight = total_weight + weight; // ADDED
+            total_weight = total_weight + weight;
         }
-        return total_weight; // CHANGED to total_weight
+        return total_weight;
     }
 
     /**
@@ -159,7 +151,7 @@ public class Manifest {
     /**
      * @return Validity if the Quantities map contains a hazardous product
      */        
-    public boolean hasHazardousItems() { // ADDED: To detect if any hazardous items in manifest
+    public boolean hasHazardousItems() {
         for (Product p : quantities.keySet()) {
             if (p.isHazardous()) {
                 return true;
@@ -174,8 +166,6 @@ public class Manifest {
      * @return The string listing all products that cannot be set, null is none exists
      */        
     public String cannotSetProduct() { 
-        // ^ ADDED: Created during refactoring of AddProduct Function to detect products that 
-        // cannot be set.
         if (cannotSet.isEmpty()) {
             return null;
         }
@@ -186,4 +176,4 @@ public class Manifest {
         }
     }
     
-} // SYNTAX ERROR: '}' bracket to close class
+}

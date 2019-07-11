@@ -14,7 +14,7 @@ import packer.Product;
  * Example program that demonstrates packer functionality
  * 
  * @author bunta, Charles Tsao
- * @version 1.0
+ * @version 1.1
  */
 public class Example {
     
@@ -38,7 +38,7 @@ public class Example {
         
         Customer customer = new Customer("Andy Bravo", customerAddress1);
         customer.addAddress(customerAddress2);
-        System.out.println("\nCUSTOMER:"); // Added ":" to match other headings
+        System.out.println("\nCUSTOMER:");
         System.out.println(customer);
 
         Manifest manifest = new Manifest();
@@ -65,8 +65,7 @@ public class Example {
             System.out.println(b);
             System.out.println("");
         }
-        
-        // Display products that are unable to be set
+
         System.err.println(manifest.cannotSetProduct() + "\n");
     }
     
